@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>*EDODIOSBOLA* | ARCHIVE_001</title>
+
+  <link rel="icon" href="werewrwrwrwe.jpg" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Courier, monospace;
+      margin: 0;
+      padding: 40px 20px;
+      text-transform: uppercase;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      animation: scan 0.15s infinite;
+      z-index: 9999;
+    }
+
+    @keyframes scan {
+      from { transform: translateY(0); }
+      to { transform: translateY(2px); }
+    }
+
+    .main-container {
+      border: 2px solid white;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 25px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .glitch {
+      position: relative;
+      font-size: 32px;
+      letter-spacing: 8px;
+      text-align: center;
+      background: white;
+      color: black;
+      padding: 10px 20px;
+      margin-bottom: 40px;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      background: white;
+      overflow: hidden;
+    }
+
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 red;
+      animation: glitchTop 1.5s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 cyan;
+      animation: glitchBottom 1s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 80% 0); }
+      50% { clip-path: inset(40% 0 20% 0); }
+      100% { clip-path: inset(10% 0 60% 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip-path: inset(60% 0 10% 0); }
+      50% { clip-path: inset(20% 0 40% 0); }
+      100% { clip-path: inset(80% 0 0 0); }
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 850px) {
+      .grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .visual-frame {
+      border: 1px solid white;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      filter: grayscale(100%) contrast(150%);
+      transition: 0.3s;
+    }
+
+    img:hover {
+      filter: invert(100%);
+      cursor: crosshair;
+    }
+
+    .btn-main {
+      display: block;
+      border: 1px solid white;
+      padding: 10px 20px;
+      margin-top: 10px;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-main:hover {
+      background: white;
+      color: black;
+    }
+
+    .text-block {
+      text-align: justify;
+      border: 1px solid #333;
+      padding: 20px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      font-size: 14px;
+      line-height: 1.4;
+      opacity: 0.85;
+    }
+
+    .discography {
+      margin-top: 50px;
+      border-top: 2px solid white;
+      padding-top: 20px;
+    }
+
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .album-card {
+      border: 1px solid white;
+      padding: 15px;
+      background: black;
+      transition: 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .album-card:hover {
+      background: white;
+      color: black !important;
+      transform: scale(1.06);
+      box-shadow: 0 0 18px rgba(255,255,255,0.4);
+    }
+
+    .album-card a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      height: 100%;
+    }
+
+    .album-card img {
+      margin-top: 10px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border: 1px solid #333;
+    }
+
+    .date {
+      font-size: 10px;
+      color: #888;
+      margin-bottom: 5px;
+    }
+
+    .album-card:hover .date {
+      color: black;
+    }
+
+    #comments {
+      margin-top: 60px;
+      border-top: 2px solid white;
+      padding-top: 20px;
+    }
+
+    #comments textarea {
+      width: 100%;
+      background: black;
+      color: white;
+      border: 1px solid white;
+      padding: 10px;
+      font-family: Courier, monospace;
+      resize: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    /* ===== MORPH ENTITY ===== */
+    .star-entity {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 140px;
+      height: 140px;
+      pointer-events: none;
+      perspective: 800px;
+      z-index: 1;
+      will-change: transform;
+    }
+
+    .shape {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      transform-style: preserve-3d;
+      animation: spin 10s infinite linear;
+      transition: all 0.4s ease;
+    }
+
+    .shape span {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border: 1px solid white;
+      opacity: 0.35;
+    }
+
+    .shape.star span:nth-child(1) { transform: rotateY(0deg) translateZ(70px); }
+    .shape.star span:nth-child(2) { transform: rotateY(60deg) translateZ(70px); }
+    .shape.star span:nth-child(3) { transform: rotateY(120deg) translateZ(70px); }
+    .shape.star span:nth-child(4) { transform: rotateY(180deg) translateZ(70px); }
+    .shape.star span:nth-child(5) { transform: rotateY(240deg) translateZ(70px); }
+    .shape.star span:nth-child(6) { transform: rotateY(300deg) translateZ(70px); }
+    .shape.star span:nth-child(7) { transform: rotateX(90deg) translateZ(70px); }
+    .shape.star span:nth-child(8) { transform: rotateX(-90deg) translateZ(70px); }
+
+    .shape.cross span:nth-child(1) { transform: rotateX(0deg) translateZ(70px); }
+    .shape.cross span:nth-child(2) { transform: rotateX(90deg) translateZ(70px); }
+    .shape.cross span:nth-child(3) { transform: rotateX(180deg) translateZ(70px); }
+    .shape.cross span:nth-child(4) { transform: rotateX(270deg) translateZ(70px); }
+    .shape.cross span:nth-child(5) { transform: rotateY(0deg) translateZ(70px); }
+    .shape.cross span:nth-child(6) { transform: rotateY(180deg) translateZ(70px); }
+    .shape.cross span:nth-child(7) { transform: rotateZ(90deg) translateZ(70px); }
+    .shape.cross span:nth-child(8) { transform: rotateZ(270deg) translateZ(70px); }
+
+    .shape.flat span:nth-child(1) { transform: rotateZ(0deg); }
+    .shape.flat span:nth-child(2) { transform: rotateZ(45deg); }
+    .shape.flat span:nth-child(3) { transform: rotateZ(90deg); }
+    .shape.flat span:nth-child(4) { transform: rotateZ(135deg); }
+    .shape.flat span:nth-child(5) { transform: rotateZ(180deg); }
+    .shape.flat span:nth-child(6) { transform: rotateZ(225deg); }
+    .shape.flat span:nth-child(7) { transform: rotateZ(270deg); }
+    .shape.flat span:nth-child(8) { transform: rotateZ(315deg); }
+
+    .shape.box span:nth-child(1) { transform: translateZ(70px); }
+    .shape.box span:nth-child(2) { transform: rotateY(90deg) translateZ(70px); }
+    .shape.box span:nth-child(3) { transform: rotateY(180deg) translateZ(70px); }
+    .shape.box span:nth-child(4) { transform: rotateY(270deg) translateZ(70px); }
+    .shape.box span:nth-child(5) { transform: rotateX(90deg) translateZ(70px); }
+    .shape.box span:nth-child(6) { transform: rotateX(270deg) translateZ(70px); }
+    .shape.box span:nth-child(7) { transform: scale(0.7) translateZ(40px); }
+    .shape.box span:nth-child(8) { transform: scale(0.4) translateZ(20px); }
+
+    @keyframes spin {
+      from { transform: rotateX(0deg) rotateY(0deg); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MORPH ENTITY -->
+  <div class="star-entity" id="dvdStar">
+    <div class="shape star" id="shape">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="main-container">
+
+    <div class="glitch" data-text="EDODIOSBOLA">EDODIOSBOLA</div>
+
+    <div class="grid-layout">
+      <div class="visual-side">
+        <div class="visual-frame">
+          <img src="ewrwrwe.png" alt="EDODIOSBOLA">
+        </div>
+        <a href="https://www.youtube.com/@edodiosbola" target="_blank" class="btn-main">CANAL DE YOUTUBE</a>
+        <a href="https://www.instagram.com/archivonumero1/" target="_blank" class="btn-main">INSTAGRAM</a>
+        <a href="https://edodiosbola4.bandcamp.com/album/nueva-linea-en-la-camisa-de-cuadros" target="_blank" class="btn-main">BANDCAMP</a>
+      </div>
+
+      <div class="content">
+        <div class="text-block">
+          <p>
+            DE CREAR NIVELES EN <strong>GEOMETRY DASH</strong> A MOLDEAR EL RUIDO EN EL ESTUDIO.
+            <strong>EDODIOSBOLA</strong> REPRESENTA LA NECESIDAD DE CREAR SIN PERMISO.
+            DESDE SU PRIMER <strong>SHURE SM58</strong> HASTA LA CONSTRUCCIÓN DE SU PROPIO ESPACIO CREATIVO,
+            SU OBRA ES UN REGISTRO DE LO QUE PASA CUANDO UN ARTISTA SE CONVIERTE EN
+            <strong>SU PROPIO SELLO, SU PROPIO DIRECTOR Y SU PROPIA REALIDAD.</strong>
+            ES EL PRODUCTOR, EL ESCRITOR Y EL ENCARGADO DE LOS VISUALES DE TODA SU OBRA.
+            SU FILOSOFÍA ES CLARA: "CUANDO DESCUBRÍ QUE EQUIVOCARME ERA GRATIS, NO TUVE OTRA OPCIÓN."
+          </p>
+
+          <p style="opacity:0.6; letter-spacing:2px;"></p>
+
+          <img src="IMG_20230501_193136 (1).jpg" alt="UNNAMED 0">
+        </div>
+      </div>
+    </div>
+
+    <div class="discography">
+      <h2>Discografía</h2>
+      <div class="album-grid">
+
+        <div class="album-card">
+          <a href="https://youtu.be/TBLSsgfv3zA?list=PLXZidlush52Xo8QDT8O9xEs7tReRbVf3n" target="_blank">
+            <span class="date">31 AGO 2024</span>
+            <div>UNNAMED 0 [ALBUM]</div>
+            <img src="tyteyeyr.png" alt="UNNAMED 0">
+          </a>
+        </div>
+
+        <div class="album-card">
+          <a href="https://youtu.be/HzOn_sX5F84?list=PLXZidlush52W8_pc2OwMoTbAtWycgymIu" target="_blank">
+            <span class="date">05 OCT 2024</span>
+            <div>PAQ#1 "EXPRESIÓN NATURAL" [EP]</div>
+            <img src="werwrwewerwer.png" alt="EXPRESIÓN NATURAL">
+          </a>
+        </div>
+
+        <div class="album-card">
+          <a href="https://www.youtube.com/watch?v=Dz6Z8YNlR0s&list=PLXZidlush52VXjVnFBlx6lhqWIkBNo5Zf" target="_blank">
+            <span class="date">28 OCT 2024</span>
+            <div>"OXIGENO 20" [ALBUM]</div>
+            <img src="aaaaa.png" alt="OXIGENO 20">
+          </a>
+        </div>
+
+        <div class="album-card">
+          <a href="https://youtu.be/e2dTCvn0d9w?list=PLXZidlush52Us_ArJ3wGLi3GBKwONtC5e" target="_blank">
+            <span class="date">03 FEB 2025</span>
+            <div>"PSOAS" [ALBUM]</div>
+            <img src="WEREWRWERWRWE.png" alt="PSOAS">
+          </a>
+        </div>
+
+        <div class="album-card">
+          <a href="https://youtu.be/HzOn_sX5F84" target="_blank">
+            <span class="date">24 FEB 2025</span>
+            <div>"ME SIENTO UN PEDAZO DE MIERDA" [FREESTYLE EP]</div>
+            <img src="werwrwerwerwe.png" alt="FREESTYLE EP">
+          </a>
+        </div>
+
+        <div class="album-card">
+          <a href="https://www.youtube.com/playlist?list=PLXZidlush52UsquZtC4UXLiZyk2UoIKYN" target="_blank">
+            <span class="date">06 SEP 2025</span>
+            <div>DOMINGO FT. THE BIG LUIS [ALBUM]</div>
+            <img src="lui.png" alt="DOMINGO">
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="comments">
+      <h2>DEJA ALGO</h2>
+      <textarea id="commentInput" rows="3" placeholder="escribe algo... (enter para soltarlo)"></textarea>
+    </div>
+
+  </div>
+
+  <footer>
+    <p style="font-size:20px;">Contacto: edodiosbola.r@gmail.com</p>
+    <p style="font-size:10px; opacity:0.5;">gausiano // 2026</p>
+  </footer>
+
+  <script>
+    /* ===== EPHEMERAL COMMENTS ===== */
+    const input = document.getElementById("commentInput");
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        input.value = "";
+      }
+    });
+
+    /* ===== DVD + MORPH ===== */
+    const dvd = document.getElementById("dvdStar");
+    const shape = document.getElementById("shape");
+    const forms = ["star", "cross", "flat", "box"];
+    let formIndex = 0;
+
+    let x = 120;
+    let y = 120;
+    let vx = 2;
+    let vy = 1.7;
+
+    function moveDVD() {
+      const maxX = window.innerWidth - 140;
+      const maxY = window.innerHeight - 140;
+
+      x += vx;
+      y += vy;
+
+      let bounced = false;
+
+      if (x <= 0 || x >= maxX) {
+        vx *= -1;
+        bounced = true;
+      }
+      if (y <= 0 || y >= maxY) {
+        vy *= -1;
+        bounced = true;
+      }
+
+      if (bounced) {
+        formIndex = (formIndex + 1) % forms.length;
+        shape.className = "shape " + forms[formIndex];
+      }
+
+      dvd.style.left = x + "px";
+      dvd.style.top = y + "px";
+
+      requestAnimationFrame(moveDVD);
+    }
+
+    moveDVD();
+  </script>
+
+</body>
+</html>
