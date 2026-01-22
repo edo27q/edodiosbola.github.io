@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDODIOSBOLA - Nuevo Lanzamiento</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:25px;
+  background-color:#050505;
+  overflow:hidden;
+  position:relative;
+  color:#fff;
+}
+
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+h1{
+  font-size:1.8rem;
+  font-weight:400;
+  letter-spacing:2px;
+  text-align:center;
+  text-transform:uppercase;
+  color:#fff;
+  text-shadow:0 0 25px rgba(0,150,255,0.7);
+}
+
+.cover-container{
+  width:90%;
+  max-width:450px;
+  overflow:hidden;
+  cursor:pointer;
+  perspective:1000px;
+}
+
+.cover-container img{
+  width:100%;
+  display:block;
+  object-fit:cover;
+  transition: transform 0.2s, filter 0.2s;
+  will-change: transform, filter;
+}
+
+.player{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+button{
+  background:rgba(255,255,255,0.05);
+  border:2px solid #fff;
+  color:#fff;
+  padding:12px 30px;
+  font-size:0.9rem;
+  border-radius:0;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#fff;
+  color:#050505;
+  transform:scale(1.05);
+  box-shadow:0 0 20px #fff;
+}
+
+#bandcampBtn{
+  display:none;
+  margin-top:20px;
+  border:2px solid #1db954;
+  padding:12px 30px;
+  border-radius:0;
+  color:#1db954;
+}
+
+#bandcampBtn:hover{
+  background:#1db954;
+  color:#050505;
+  box-shadow:0 0 20px #1db954;
+}
+
+@media (max-width:500px){
+  h1{font-size:1.4rem;}
+  button{padding:10px 20px;font-size:0.8rem;}
+  #bandcampBtn{padding:10px 20px;}
+}
+</style>
+</head>
+<body>
+
+<canvas id="bgCanvas"></canvas>
+
+<h1>EDODIOSBOLA</h1>
+
+<div class="cover-container">
+  <img src="cover.png" alt="Portada">
+</div>
+
+<div class="player">
+  <button id="playBtn">▶ Play</button>
+  <button id="stopBtn">⏹ Stop</button>
+</div>
+
+<button id="bandcampBtn" onclick="window.open('https://edodiosbola4.bandcamp.com/', '_blank')">
+  Escúchalo en Bandcamp
+</button>
+
+<audio id="audio" src="track.mp3"></audio>
+
+<script>
+// --- Audio ---
+const audio=document.getElementById('audio');
+const playBtn=document.getElementById('playBtn');
+const stopBtn=document.getElementById('stopBtn');
+const bandcampBtn=document.getElementById('bandcampBtn');
+
+playBtn.addEventListener('click',()=>audio.play());
+stopBtn.addEventListener('click',()=>{audio.pause();audio.currentTime=0;});
+audio.addEventListener('ended',()=>bandcampBtn.style.display='inline-block');
+
+// --- Fondo luces estilo neón urbano ---
+const canvas=document.getElementById('bgCanvas');
+const ctx=canvas.getContext('2d');
+resizeCanvas();
+window.addEventListener('resize',resizeCanvas);
+
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+
+let lights=[];
+const colors=[
+  'rgba(0,150,255,0.12)',
+  'rgba(0,200,255,0.10)',
+  'rgba(50,180,255,0.08)',
+  'rgba(0,120,255,0.15)'
+];
+
+// Crear luces
+for(let i=0;i<18;i++){
+  lights.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    vx:(Math.random()*0.3+0.05)*(Math.random()<0.5?-1:1),
+    vy:(Math.random()*0.3+0.05)*(Math.random()<0.5?-1:1),
+    radius:200+Math.random()*250,
+    color:colors[Math.floor(Math.random()*colors.length)]
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  lights.forEach(l=>{
+    if(l.x+l.radius>canvas.width||l.x-l.radius<0) l.vx*=-1;
+    if(l.y+l.radius>canvas.height||l.y-l.radius<0) l.vy*=-1;
+    l.x+=l.vx; l.y+=l.vy;
+
+    const grad=ctx.createRadialGradient(l.x,l.y,0,l.x,l.y,l.radius);
+    grad.addColorStop(0,l.color);
+    grad.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=grad;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+  });
+
+  const cover = document.querySelector('.cover-container');
+  const rect = cover.getBoundingClientRect();
+  const haloX = rect.left + rect.width/2;
+  const haloY = rect.top + rect.height/2;
+  const haloRadius = Math.max(rect.width, rect.height);
+
+  const haloGrad = ctx.createRadialGradient(haloX, haloY, 0, haloX, haloY, haloRadius);
+  haloGrad.addColorStop(0,'rgba(0,180,255,0.15)');
+  haloGrad.addColorStop(1,'rgba(0,0,0,0)');
+  ctx.fillStyle = haloGrad;
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  requestAnimationFrame(draw);
+}
+draw();
+
+// --- Portada efecto líquido sin cambiar color ---
+const cover = document.querySelector('.cover-container');
+const img = cover.querySelector('img');
+
+cover.addEventListener('mousemove', e => {
+  const rect = cover.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width;
+  const y = (e.clientY - rect.top) / rect.height;
+
+  const moveX = (x - 0.5) * 25;
+  const moveY = (y - 0.5) * 25;
+  const blur = Math.abs(x-0.5 + y-0.5) * 5;
+
+  img.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+  img.style.filter = `blur(${blur}px)`;
+});
+
+cover.addEventListener('mouseleave', () => {
+  img.style.transform = `translate(0px, 0px) scale(1)`;
+  img.style.filter = `blur(0px)`;
+});
+</script>
+
+</body>
+</html>
