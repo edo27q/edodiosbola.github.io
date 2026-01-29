@@ -308,6 +308,33 @@
     /* AJUSTE PARA MÓVILES */
 @media (max-width: 600px) {
   body {
+    padding: 5px; /* Menos espacio afuera del trazo */
+    overflow-x: hidden; /* Evita que la web se mueva de lado a lado */
+  }
+
+  /* Este es el que arregla lo "estrecho" del trazo blanco */
+  .container, .bio-container, .main-frame { 
+    width: 96% !important; /* El trazo ahora ocupará casi toda la pantalla */
+    margin: 5px auto !important; /* Centrado con mínimo margen */
+    padding: 15px 10px !important; /* Espacio interno para que el texto no toque el trazo */
+    border-width: 2px !important; /* Opcional: hace el trazo un poco más fino en móvil */
+    box-sizing: border-box;
+  }
+
+  /* Arreglo para el título EDODIOSBOLA */
+  h1 { 
+    font-size: 8vw !important; 
+    letter-spacing: -1px !important; /* Junta un poco las letras para que quepan */
+    white-space: nowrap; /* Evita que el nombre se parta en dos líneas */
+  }
+
+  p {
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+    text-align: left;
+  }
+}@media (max-width: 600px) {
+  body {
     overflow-y: auto; /* Para que puedas bajar con el dedo */
     padding: 20px 0;
   }
