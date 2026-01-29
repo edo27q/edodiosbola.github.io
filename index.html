@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>EDODIOSBOLA | SITIO OFICIAL</title>
+  <title>EDODIOSBOLA | SITIO OFICIAL </title>
+  <link rel="icon" href="werewrwrwrwe.jpg" type="image/png">
+  <meta name="description" content="Edodiosbola: Proyecto artístico independiente. Producción, lírica y visuales de 6 álbumes. De Pasaje para el mundo.">
+  <meta name="keywords" content="Edodiosbola, Rap Ecuador, Monza, Arte Independiente, 6 álbumes, FL Studio">
   
-  <link rel="icon" href="ewrwrwrwe.png" type="image/png">
-
-  <meta name="description" content="Edodiosbola: Proyecto artístico independiente. De Pasaje para el mundo.">
-  <meta name="keywords" content="Edodiosbola, Rap Ecuador, Monza, Arte Independiente, FL Studio">
   <meta name="google-site-verification" content="mLG7-y_ZmT_4YUojUmnTwfE_bjV6qzU2aY-j4esOwQw" />
 
-  <meta property="og:title" content="EDODIOSBOLA | SITIO OFICIAL">
-  <meta property="og:image" content="https://edodiosbola.vercel.app/ewrwrwrwe.png"> 
+  <meta property="og:title" content="Edodiosbola | Sitio Oficial">
+  <meta property="og:image" content="https://tu-web.vercel.app/ewrwrwrwe.png"> 
   <meta name="robots" content="index, follow">
+
   <style>
     body {
       background: black;
@@ -108,9 +108,24 @@
       gap: 40px;
     }
 
+    /* ESTO ARREGLA EL TELÉFONO */
     @media (max-width: 850px) {
+      body { padding: 15px 10px; }
       .grid-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        gap: 20px;
+      }
+      .main-container {
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .glitch {
+        font-size: 24px;
+        letter-spacing: 4px;
+      }
+      .visual-side {
+        width: 100%;
       }
     }
 
@@ -120,6 +135,7 @@
 
     img {
       width: 100%;
+      height: auto;
       display: block;
       filter: grayscale(100%) contrast(150%);
       transition: 0.3s;
@@ -149,6 +165,10 @@
       text-align: justify;
       border: 1px solid #333;
       padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .text-block { padding: 15px; text-align: left; }
     }
 
     p {
@@ -225,14 +245,15 @@
       padding: 10px;
       font-family: Courier, monospace;
       resize: none;
+      box-sizing: border-box;
     }
 
     footer {
       margin-top: 40px;
       text-align: center;
+      padding-bottom: 40px;
     }
 
-    /* ===== MORPH ENTITY ===== */
     .star-entity {
       position: fixed;
       left: 0;
@@ -245,10 +266,14 @@
       will-change: transform;
     }
 
+    @media (max-width: 600px) {
+      .star-entity { width: 80px; height: 80px; } /* Más pequeña en móvil */
+    }
+
     .shape {
       position: relative;
-      width: 140px;
-      height: 140px;
+      width: 100%;
+      height: 100%;
       transform-style: preserve-3d;
       animation: spin 10s infinite linear;
       transition: all 0.4s ease;
@@ -256,15 +281,10 @@
 
     .shape span {
       position: absolute;
-      width: 140px;
-      height: 140px;
+      width: 100%;
+      height: 100%;
       border: 1px solid white;
       opacity: 0.35;
-    }
-    
-    .photo-leak {
-        filter: grayscale(1) contrast(200%) brightness(0.8);
-        border: 1px solid white;
     }
 
     .shape.star span:nth-child(1) { transform: rotateY(0deg) translateZ(70px); }
@@ -276,33 +296,6 @@
     .shape.star span:nth-child(7) { transform: rotateX(90deg) translateZ(70px); }
     .shape.star span:nth-child(8) { transform: rotateX(-90deg) translateZ(70px); }
 
-    .shape.cross span:nth-child(1) { transform: rotateX(0deg) translateZ(70px); }
-    .shape.cross span:nth-child(2) { transform: rotateX(90deg) translateZ(70px); }
-    .shape.cross span:nth-child(3) { transform: rotateX(180deg) translateZ(70px); }
-    .shape.cross span:nth-child(4) { transform: rotateX(270deg) translateZ(70px); }
-    .shape.cross span:nth-child(5) { transform: rotateY(0deg) translateZ(70px); }
-    .shape.cross span:nth-child(6) { transform: rotateY(180deg) translateZ(70px); }
-    .shape.cross span:nth-child(7) { transform: rotateZ(90deg) translateZ(70px); }
-    .shape.cross span:nth-child(8) { transform: rotateZ(270deg) translateZ(70px); }
-
-    .shape.flat span:nth-child(1) { transform: rotateZ(0deg); }
-    .shape.flat span:nth-child(2) { transform: rotateZ(45deg); }
-    .shape.flat span:nth-child(3) { transform: rotateZ(90deg); }
-    .shape.flat span:nth-child(4) { transform: rotateZ(135deg); }
-    .shape.flat span:nth-child(5) { transform: rotateZ(180deg); }
-    .shape.flat span:nth-child(6) { transform: rotateZ(225deg); }
-    .shape.flat span:nth-child(7) { transform: rotateZ(270deg); }
-    .shape.flat span:nth-child(8) { transform: rotateZ(315deg); }
-
-    .shape.box span:nth-child(1) { transform: translateZ(70px); }
-    .shape.box span:nth-child(2) { transform: rotateY(90deg) translateZ(70px); }
-    .shape.box span:nth-child(3) { transform: rotateY(180deg) translateZ(70px); }
-    .shape.box span:nth-child(4) { transform: rotateY(270deg) translateZ(70px); }
-    .shape.box span:nth-child(5) { transform: rotateX(90deg) translateZ(70px); }
-    .shape.box span:nth-child(6) { transform: rotateX(270deg) translateZ(70px); }
-    .shape.box span:nth-child(7) { transform: scale(0.7) translateZ(40px); }
-    .shape.box span:nth-child(8) { transform: scale(0.4) translateZ(20px); }
-
     @keyframes spin {
       from { transform: rotateX(0deg) rotateY(0deg); }
       to { transform: rotateX(360deg) rotateY(360deg); }
@@ -310,37 +303,6 @@
     
     html {
       scroll-behavior: smooth;
-    }
-    
-    @media (max-width: 600px) {
-      body {
-        padding: 5px;
-        overflow-x: hidden;
-      }
-
-      .main-container { 
-        width: 96% !important;
-        margin: 5px auto !important;
-        padding: 15px 10px !important;
-        border-width: 2px !important;
-        box-sizing: border-box;
-      }
-
-      h1 { 
-        font-size: 8vw !important; 
-        letter-spacing: -1px !important;
-        white-space: nowrap;
-      }
-
-      p {
-        font-size: 0.95rem !important;
-        line-height: 1.5;
-        text-align: left;
-      }
-
-      .album-grid { 
-        grid-template-columns: 1fr !important;
-      }
     }
   </style>
 </head>
@@ -365,7 +327,7 @@
         <a href="https://www.instagram.com/edodiosbola.r/" target="_blank" class="btn-main">INSTAGRAM</a>
         <a href="https://edodiosbola.bandcamp.com/" target="_blank" class="btn-main">BANDCAMP</a>
         
-        <div style="margin-top: 40px; border-top: 1px solid #111; padding-top: 20px; font-family: 'VT323', monospace; letter-spacing: 1px; line-height: 1;">
+        <div style="margin-top: 40px; border-top: 1px solid #111; padding-top: 20px; font-family: 'VT323', monospace; letter-spacing: 1px; line-height: 1.2;">
           <div style="color: #444; margin-bottom: 20px;">
             <p style="margin: 2px 0;">LOC: GUAYAQUIL_GUAYACANES</p>
             <p style="margin: 2px 0;">ORIGIN: PASAJE_7_RAZA</p>
@@ -378,30 +340,20 @@
             <p style="margin: 2px 0;">VISUALS: 5_YEARS_PHOTO_EXP</p>
             <p style="margin: 2px 0;">DATA: ENCRYPTED_BY_EDO</p>
           </div>
-
-          <div style="color: #111; font-size: 10px; text-transform: lowercase;">
-            <p>destruir_imagenes_para_crear_realidad</p>
-            <p>pasaje_el_oro_archivo_07</p>
-            <p>guayacanes_guayaquil_2026</p>
-          </div>
         </div>
       </div>
 
       <div class="content">
         <div class="text-block">
-          <p>Soy un rapero de Pasaje, El Oro. Me acerqué a la creación haciendo lyric videos en Power Point por diversión; solía hacer freestyle cuando nadie estaba en la casa, no era algo que pensara tomar en serio. Mi gusto por el ritmo se veía en mi afición a <strong>Geometry Dash</strong>; era un creador de niveles que disfrutaba ir al compás de la música. Mi hermano me decía que por qué mejor no usaba ese tiempo para crear música para el mismo juego.</p>
+          <p>Soy un rapero de Pasaje, El Oro. Me acerqué a la creación haciendo lyric videos en Power Point por diversión; solía hacer freestyle cuando nadie estaba en la casa. Mi gusto por el ritmo se veía en mi afición a <strong>Geometry Dash</strong>; era un creador de niveles que disfrutaba ir al compás de la música.</p>
 
-          <p>Desde muy pequeño me gustaba editar y destruir imágenes, una estética que mantuve a lo largo del tiempo. Al juntar esa afición con todo lo que aprendí en producción, me metí de lleno a la edición. Fue tanto así que conseguí trabajo como editor y fotógrafo en un estudio fotográfico en Pasaje, donde trabajé por casi 5 años. Esa experiencia profesional es la que me permite hoy tomar el control total de los visuales de mi carrera.</p>
+          <p>Desde muy pequeño me gustaba editar y destruir imágenes, una estética que mantuve a lo largo del tiempo. Al juntar esa afición con todo lo que aprendí en producción, me metí de lleno a la edición. Trabajé como editor y fotógrafo por casi 5 años. Esa experiencia profesional es la que me permite hoy tomar el control total de los visuales de mi carrera.</p>
 
-          <p>Cayó la pandemia y seguía con mi rutina normal de jugar, hasta que llegó el punto en que me harté, desinstalé Geometry Dash y comencé a adentrarme más en el rap. Mis primeras referencias musicales eran el rock, el metal y el pop. En la escuela, mientras todos estaban con el reggaetón en quinto grado, yo ya estaba sumergido en sonidos mucho más pesados y oscuros. Mi hermano mayor desarrolló un gusto por la guitarra; fue muy loco verlo pasar de tocar con una escoba en la casa a tener una guitarra real y tocar en vivo. Gracias a eso, los lazos con la interpretación musical se fueron uniendo; lo visitaba en sus presentaciones y escuchaba los ensayos en la casa.</p>
+          <p>Cayó la pandemia y comencé a adentrarme más en el rap. Entendí que esa "fruta" que se abría sola era <strong>FL Studio</strong>. Comencé a grabar en el <strong>iPhone 5</strong> de mi madre; la cámara era jodidamente buena. Entre mi hermano y yo nos hicimos con un <strong>Shure SM58</strong>.</p>
 
-          <p>Había un programa que odiaba que se abriera; era una fruta que se quedaba en medio de la pantalla cuando intentaba abrir Geometry Dash o alguna otra aplicación. En la pandemia me di cuenta de que los beats de rap y la música actual se hacían en ese programa llamado <strong>FL Studio</strong>, que era el que se abría sin querer, y también entendí que esa consola roja era una interfaz de audio.</p>
+          <p>Bajo el nombre de <strong>Stay-C</strong> grabé mis primeros freestyles. Pasé por varios nombres hasta que decidí usar mi primer correo de los 10 años: <strong>edogodball</strong>, y lo traduje: <strong>EDODIOSBOLA</strong>.</p>
 
-          <p>Comencé a grabar en el <strong>iPhone 5</strong> de mi madre; extrañaré ese teléfono, la cámara era jodidamente buena. Entre mi hermano y yo nos hicimos con un <strong>Shure SM58</strong>. Recuerdo que mi hermano compró unos audífonos <strong>PreSonus</strong> y me dijo claramente: <em>"no quiero que los uses"</em>. En ese tiempo yo todavía jugaba mucho, pero una vez que comencé con lo de grabar y producir, él vio mi entusiasmo y simplemente ya no me dijo nada.</p>
-
-          <p>Bajo el nombre de <strong>Stay-C</strong> grabé mis primeros freestyles buscando beats con pocos likes en YouTube. No duró mucho; mi hermano me dijo que sonaba a nombre de pelada, así que lo cambié. Pasé a ser <strong>Young Mory Ratt</strong> y luego <strong>Yung Letall</strong>. Aquí conocí a unos amigos por internet que me ayudaron a mejorar en la producción y creamos un colectivo que no duró mucho. Mantuve ese nombre por casi tres años, hasta que decidí que no nesecitba un nombre artistico cool sino que simplemente se lo sea tenga un trasnfondo mio. Así recapitulando en memorias agarré mi primer correo, el que me crearon a los 10 años, <strong>edogodball</strong>, y lo traduje: <strong>EDODIOSBOLA</strong>. Al diablo, eso suena bien, ¿quién mierda iría por eso?</p>
-
-          <p>Llevo varios proyectos producidos, escritos y visualizados por mí. Actualmente me mudé a <strong>Guayaquil</strong>, al sector de <strong>Guayacanes</strong>.</p>
+          <p>Llevo varios proyectos producidos, escritos y visualizados por mí. Actualmente vivo en <strong>Guayaquil</strong>, sector <strong>Guayacanes</strong>.</p>
 
           <img src="IMG_20230501_193136 (1).jpg" alt="UNNAMED 0">
         </div>
@@ -463,7 +415,7 @@
   </div>
 
   <footer>
-    <p style="font-size:20px;">Contacto: edodiosbola.r@gmail.com</p>
+    <p style="font-size:18px;">Contacto: edodiosbola.r@gmail.com</p>
     <p style="font-size:10px; opacity:0.5;">gausiano // 2026</p>
   </footer>
 
@@ -478,25 +430,14 @@
 
     const dvd = document.getElementById("dvdStar");
     const shape = document.getElementById("shape");
-    const forms = ["star", "cross", "flat", "box"];
-    let formIndex = 0;
-    let x = 120;
-    let y = 120;
-    let vx = 2;
-    let vy = 1.7;
+    let x = 50, y = 50, vx = 2, vy = 1.7;
 
     function moveDVD() {
-      const maxX = window.innerWidth - 140;
-      const maxY = window.innerHeight - 140;
-      x += vx;
-      y += vy;
-      let bounced = false;
-      if (x <= 0 || x >= maxX) { vx *= -1; bounced = true; }
-      if (y <= 0 || y >= maxY) { vy *= -1; bounced = true; }
-      if (bounced) {
-        formIndex = (formIndex + 1) % forms.length;
-        shape.className = "shape " + forms[formIndex];
-      }
+      const maxX = window.innerWidth - dvd.offsetWidth;
+      const maxY = window.innerHeight - dvd.offsetHeight;
+      x += vx; y += vy;
+      if (x <= 0 || x >= maxX) vx *= -1;
+      if (y <= 0 || y >= maxY) vy *= -1;
       dvd.style.left = x + "px";
       dvd.style.top = y + "px";
       requestAnimationFrame(moveDVD);
