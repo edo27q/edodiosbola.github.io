@@ -310,9 +310,12 @@
   }
 
   /* Ajusta el contenedor de tu bio y álbumes */
-  .container, .archive-container, .text-block { 
-    width: 92% !important;
+.container, .bio-container, .text-block { 
+    width: 90% !important; /* Que ocupe el 90% del ancho del cel */
+    max-width: none !important;
+    margin: 10px auto !important;
     padding: 15px !important;
+    box-sizing: border-box; /* Para que el padding no lo empuje */
   }
 
   h1 { 
