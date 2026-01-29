@@ -3,8 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>*EDODIOSBOLA* | ARCHIVE_001</title>
+  
+  <title>Edodiosbola | Sitio Oficial | Autor Total de 6 Álbumes</title>
+  <meta name="description" content="Edodiosbola: Proyecto artístico independiente nacido en Monza y forjado en Pasaje, Ecuador. Producción, lírica y visuales de 6 álbumes.">
+  <meta name="keywords" content="Edodiosbola, Música Independiente, Ecuador, Monza, Arte Visual, 6 álbumes, Sepultura, Michael Jackson">
+  
+  <meta name="google-site-verification" content="TU_CODIGO_AQUI" />
 
+  <meta property="og:title" content="Edodiosbola | Sitio Oficial">
+  <meta property="og:description" content="Explora el universo visual y sonoro de Edodiosbola. Producción independiente desde el 2004.">
+  <meta property="og:image" content="https://tu-web.vercel.app/ewrwrwrwe.png"> 
+  <meta property="og:url" content="https://tu-web.vercel.app">
+  <meta property="og:type" content="website">
+
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tu-web.vercel.app">
+  
   <link rel="icon" href="werewrwrwrwe.jpg" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
@@ -254,13 +268,11 @@
       border: 1px solid white;
       opacity: 0.35;
     }
-    /* Añade esto a la imagen si la usas */
-.photo-leak {
-    filter: grayscale(1) contrast(200%) brightness(0.8);
-    border: 1px solid white;
-}
     
-
+    .photo-leak {
+        filter: grayscale(1) contrast(200%) brightness(0.8);
+        border: 1px solid white;
+    }
 
     .shape.star span:nth-child(1) { transform: rotateY(0deg) translateZ(70px); }
     .shape.star span:nth-child(2) { transform: rotateY(60deg) translateZ(70px); }
@@ -302,72 +314,45 @@
       from { transform: rotateX(0deg) rotateY(0deg); }
       to { transform: rotateX(360deg) rotateY(360deg); }
     }
-    tml {
-  scroll-behavior: smooth;
-}
-    /* AJUSTE PARA MÓVILES */
-@media (max-width: 600px) {
-  body {
-    padding: 5px; /* Menos espacio afuera del trazo */
-    overflow-x: hidden; /* Evita que la web se mueva de lado a lado */
-  }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    @media (max-width: 600px) {
+      body {
+        padding: 5px;
+        overflow-x: hidden;
+      }
 
-  /* Este es el que arregla lo "estrecho" del trazo blanco */
-  .container, .bio-container, .main-frame { 
-    width: 96% !important; /* El trazo ahora ocupará casi toda la pantalla */
-    margin: 5px auto !important; /* Centrado con mínimo margen */
-    padding: 15px 10px !important; /* Espacio interno para que el texto no toque el trazo */
-    border-width: 2px !important; /* Opcional: hace el trazo un poco más fino en móvil */
-    box-sizing: border-box;
-  }
+      .main-container { 
+        width: 96% !important;
+        margin: 5px auto !important;
+        padding: 15px 10px !important;
+        border-width: 2px !important;
+        box-sizing: border-box;
+      }
 
-  /* Arreglo para el título EDODIOSBOLA */
-  h1 { 
-    font-size: 8vw !important; 
-    letter-spacing: -1px !important; /* Junta un poco las letras para que quepan */
-    white-space: nowrap; /* Evita que el nombre se parta en dos líneas */
-  }
+      h1 { 
+        font-size: 8vw !important; 
+        letter-spacing: -1px !important;
+        white-space: nowrap;
+      }
 
-  p {
-    font-size: 0.95rem !important;
-    line-height: 1.5;
-    text-align: left;
-  }
-}@media (max-width: 600px) {
-  body {
-    overflow-y: auto; /* Para que puedas bajar con el dedo */
-    padding: 20px 0;
-  }
+      p {
+        font-size: 0.95rem !important;
+        line-height: 1.5;
+        text-align: left;
+      }
 
-  /* Ajusta el contenedor de tu bio y álbumes */
-.container, .bio-container, .text-block { 
-    width: 90% !important; /* Que ocupe el 90% del ancho del cel */
-    max-width: none !important;
-    margin: 10px auto !important;
-    padding: 15px !important;
-    box-sizing: border-box; /* Para que el padding no lo empuje */
-  }
-
-  h1 { 
-    font-size: 1.3rem !important; 
-  }
-
-  p { 
-    font-size: 0.85rem !important;
-    line-height: 1.6;
-  }
-
-  /* Si tienes los álbumes en grid, esto los pone en una sola columna */
-  .album-grid, .grid { 
-    grid-template-columns: 1fr !important;
-  }
-}
+      .album-grid { 
+        grid-template-columns: 1fr !important;
+      }
+    }
   </style>
 </head>
 
 <body>
-
-  <!-- MORPH ENTITY -->
   <div class="star-entity" id="dvdStar">
     <div class="shape star" id="shape">
       <span></span><span></span><span></span><span></span>
@@ -376,7 +361,6 @@
   </div>
 
   <div class="main-container">
-
     <div class="glitch" data-text="EDODIOSBOLA">EDODIOSBOLA</div>
 
     <div class="grid-layout">
@@ -387,49 +371,44 @@
         <a href="https://www.youtube.com/@edodiosbola" target="_blank" class="btn-main">CANAL DE YOUTUBE</a>
         <a href="https://www.instagram.com/edodiosbola.r/" target="_blank" class="btn-main">INSTAGRAM</a>
         <a href="https://edodiosbola.bandcamp.com/" target="_blank" class="btn-main">BANDCAMP</a>
+        
         <div style="margin-top: 40px; border-top: 1px solid #111; padding-top: 20px; font-family: 'VT323', monospace; letter-spacing: 1px; line-height: 1;">
-  
-  <div style="color: #444; margin-bottom: 20px;">
-    <p style="margin: 2px 0;">LOC: GUAYAQUIL_GUAYACANES</p>
-    <p style="margin: 2px 0;">ORIGIN: PASAJE_7_RAZA</p>
-    <p style="margin: 2px 0;">GEAR: SM58_PRESONUS_FL</p>
- 
-  </div>
+          <div style="color: #444; margin-bottom: 20px;">
+            <p style="margin: 2px 0;">LOC: GUAYAQUIL_GUAYACANES</p>
+            <p style="margin: 2px 0;">ORIGIN: PASAJE_7_RAZA</p>
+            <p style="margin: 2px 0;">GEAR: SM58_PRESONUS_FL</p>
+          </div>
 
-  <div style="color: #222; margin-bottom: 20px; font-size: 12px;">
-    <p style="margin: 2px 0;">ID: 006_ALBUMS_PRODUCED</p>
-    <p style="margin: 2px 0;">STATUS: SELF_RELIANT</p>
-    <p style="margin: 2px 0;">VISUALS: 5_YEARS_PHOTO_EXP</p>
-    <p style="margin: 2px 0;">DATA: ENCRYPTED_BY_EDO</p>
-  </div>
+          <div style="color: #222; margin-bottom: 20px; font-size: 12px;">
+            <p style="margin: 2px 0;">ID: 006_ALBUMS_PRODUCED</p>
+            <p style="margin: 2px 0;">STATUS: SELF_RELIANT</p>
+            <p style="margin: 2px 0;">VISUALS: 5_YEARS_PHOTO_EXP</p>
+            <p style="margin: 2px 0;">DATA: ENCRYPTED_BY_EDO</p>
+          </div>
 
-  <div style="color: #111; font-size: 10px; text-transform: lowercase;">
-    <p>destruir_imagenes_para_crear_realidad</p>
-    <p>pasaje_el_oro_archivo_07</p>
-    <p>guayacanes_guayaquil_2026</p>
-    
-
-</div>
-</div>
+          <div style="color: #111; font-size: 10px; text-transform: lowercase;">
+            <p>destruir_imagenes_para_crear_realidad</p>
+            <p>pasaje_el_oro_archivo_07</p>
+            <p>guayacanes_guayaquil_2026</p>
+          </div>
+        </div>
       </div>
 
       <div class="content">
         <div class="text-block">
-          <p>
-<p>Soy un rapero de Pasaje, El Oro. Me acerqué a la creación haciendo lyric videos en Power Point por diversión; solía hacer freestyle cuando nadie estaba en la casa, no era algo que pensara tomar en serio. Mi gusto por el ritmo se veía en mi afición a <strong>Geometry Dash</strong>; era un creador de niveles que disfrutaba ir al compás de la música. Mi hermano me decía que por qué mejor no usaba ese tiempo para crear música para el mismo juego.</p>
+          <p>Soy un rapero de Pasaje, El Oro. Me acerqué a la creación haciendo lyric videos en Power Point por diversión; solía hacer freestyle cuando nadie estaba en la casa, no era algo que pensara tomar en serio. Mi gusto por el ritmo se veía en mi afición a <strong>Geometry Dash</strong>; era un creador de niveles que disfrutaba ir al compás de la música. Mi hermano me decía que por qué mejor no usaba ese tiempo para crear música para el mismo juego.</p>
 
-<p>Desde muy pequeño me gustaba editar y destruir imágenes, una estética que mantuve a lo largo del tiempo. Al juntar esa afición con todo lo que aprendí en producción, me metí de lleno a la edición. Fue tanto así que conseguí trabajo como editor y fotógrafo en un estudio fotográfico en Pasaje, donde trabajé por casi 5 años. Esa experiencia profesional es la que me permite hoy tomar el control total de los visuales de mi carrera.</p>
+          <p>Desde muy pequeño me gustaba editar y destruir imágenes, una estética que mantuve a lo largo del tiempo. Al juntar esa afición con todo lo que aprendí en producción, me metí de lleno a la edición. Fue tanto así que conseguí trabajo como editor y fotógrafo en un estudio fotográfico en Pasaje, donde trabajé por casi 5 años. Esa experiencia profesional es la que me permite hoy tomar el control total de los visuales de mi carrera.</p>
 
-<p>Cayó la pandemia y seguía con mi rutina normal de jugar, hasta que llegó el punto en que me harté, desinstalé Geometry Dash y comencé a adentrarme más en el rap. Mis primeras referencias musicales eran el rock, el metal y el pop. En la escuela, mientras todos estaban con el reggaetón en quinto grado, yo ya estaba sumergido en sonidos mucho más pesados y oscuros. Mi hermano mayor desarrolló un gusto por la guitarra; fue muy loco verlo pasar de tocar con una escoba en la casa a tener una guitarra real y tocar en vivo. Gracias a eso, los lazos con la interpretación musical se fueron uniendo; lo visitaba en sus presentaciones y escuchaba los ensayos en la casa.</p>
+          <p>Cayó la pandemia y seguía con mi rutina normal de jugar, hasta que llegó el punto en que me harté, desinstalé Geometry Dash y comencé a adentrarme más en el rap. Mis primeras referencias musicales eran el rock, el metal y el pop. En la escuela, mientras todos estaban con el reggaetón en quinto grado, yo ya estaba sumergido en sonidos mucho más pesados y oscuros. Mi hermano mayor desarrolló un gusto por la guitarra; fue muy loco verlo pasar de tocar con una escoba en la casa a tener una guitarra real y tocar en vivo. Gracias a eso, los lazos con la interpretación musical se fueron uniendo; lo visitaba en sus presentaciones y escuchaba los ensayos en la casa.</p>
 
-<p>Había un programa que odiaba que se abriera; era una fruta que se quedaba en medio de la pantalla cuando intentaba abrir Geometry Dash o alguna otra aplicación. En la pandemia me di cuenta de que los beats de rap y la música actual se hacían en ese programa llamado <strong>FL Studio</strong>, que era el que se abría sin querer, y también entendí que esa consola roja era una interfaz de audio.</p>
+          <p>Había un programa que odiaba que se abriera; era una fruta que se quedaba en medio de la pantalla cuando intentaba abrir Geometry Dash o alguna otra aplicación. En la pandemia me di cuenta de que los beats de rap y la música actual se hacían en ese programa llamado <strong>FL Studio</strong>, que era el que se abría sin querer, y también entendí que esa consola roja era una interfaz de audio.</p>
 
-<p>Comencé a grabar en el <strong>iPhone 5</strong> de mi madre; extrañaré ese teléfono, la cámara era jodidamente buena. Entre mi hermano y yo nos hicimos con un <strong>Shure SM58</strong>. Recuerdo que mi hermano compró unos audífonos <strong>PreSonus</strong> y me dijo claramente: <em>"no quiero que los uses"</em>. En ese tiempo yo todavía jugaba mucho, pero una vez que comencé con lo de grabar y producir, él vio mi entusiasmo y simplemente ya no me dijo nada.</p>
+          <p>Comencé a grabar en el <strong>iPhone 5</strong> de mi madre; extrañaré ese teléfono, la cámara era jodidamente buena. Entre mi hermano y yo nos hicimos con un <strong>Shure SM58</strong>. Recuerdo que mi hermano compró unos audífonos <strong>PreSonus</strong> y me dijo claramente: <em>"no quiero que los uses"</em>. En ese tiempo yo todavía jugaba mucho, pero una vez que comencé con lo de grabar y producir, él vio mi entusiasmo y simplemente ya no me dijo nada.</p>
 
-<p>Bajo el nombre de <strong>Stay-C</strong> grabé mis primeros freestyles buscando beats con pocos likes en YouTube. No duró mucho; mi hermano me dijo que sonaba a nombre de pelada, así que lo cambié. Pasé a ser <strong>Young Mory Ratt</strong> y luego <strong>Yung Letall</strong>. Aquí conocí a unos amigos por internet que me ayudaron a mejorar en la producción y creamos un colectivo que no duró mucho. Mantuve ese nombre por casi tres años, hasta que decidí que no nesecitba un nombre artistico cool sino que simplemente se lo sea tenga un trasnfondo mio. Así  recapitulando en memorias agarré mi primer correo, el que me crearon a los 10 años, <strong>edogodball</strong>, y lo traduje: <strong>EDODIOSBOLA</strong>. Al diablo, eso suena bien, ¿quién mierda iría por eso?</p>
+          <p>Bajo el nombre de <strong>Stay-C</strong> grabé mis primeros freestyles buscando beats con pocos likes en YouTube. No duró mucho; mi hermano me dijo que sonaba a nombre de pelada, así que lo cambié. Pasé a ser <strong>Young Mory Ratt</strong> y luego <strong>Yung Letall</strong>. Aquí conocí a unos amigos por internet que me ayudaron a mejorar en la producción y creamos un colectivo que no duró mucho. Mantuve ese nombre por casi tres años, hasta que decidí que no nesecitba un nombre artistico cool sino que simplemente se lo sea tenga un trasnfondo mio. Así recapitulando en memorias agarré mi primer correo, el que me crearon a los 10 años, <strong>edogodball</strong>, y lo traduje: <strong>EDODIOSBOLA</strong>. Al diablo, eso suena bien, ¿quién mierda iría por eso?</p>
 
-<p>Llevo varios proyectos producidos, escritos y visualizados por mí. Actualmente me mudé a <strong>Guayaquil</strong>, al sector de <strong>Guayacanes</strong>
-          <p style="opacity:0.6; letter-spacing:2px;"></p>
+          <p>Llevo varios proyectos producidos, escritos y visualizados por mí. Actualmente me mudé a <strong>Guayaquil</strong>, al sector de <strong>Guayacanes</strong>.</p>
 
           <img src="IMG_20230501_193136 (1).jpg" alt="UNNAMED 0">
         </div>
@@ -439,7 +418,6 @@
     <div class="discography">
       <h2>MÚSICA</h2>
       <div class="album-grid">
-
         <div class="album-card">
           <a href="https://youtu.be/TBLSsgfv3zA?list=PLXZidlush52Xo8QDT8O9xEs7tReRbVf3n" target="_blank">
             <span class="date">31 AGO 2024</span>
@@ -447,7 +425,6 @@
             <img src="tyteyeyr.png" alt="UNNAMED 0">
           </a>
         </div>
-
         <div class="album-card">
           <a href="https://youtu.be/HzOn_sX5F84?list=PLXZidlush52W8_pc2OwMoTbAtWycgymIu" target="_blank">
             <span class="date">05 OCT 2024</span>
@@ -455,7 +432,6 @@
             <img src="werwrwewerwer.png" alt="EXPRESIÓN NATURAL">
           </a>
         </div>
-
         <div class="album-card">
           <a href="https://www.youtube.com/watch?v=Dz6Z8YNlR0s&list=PLXZidlush52VXjVnFBlx6lhqWIkBNo5Zf" target="_blank">
             <span class="date">28 OCT 2024</span>
@@ -463,7 +439,6 @@
             <img src="aaaaa.png" alt="OXIGENO 20">
           </a>
         </div>
-
         <div class="album-card">
           <a href="https://youtu.be/e2dTCvn0d9w?list=PLXZidlush52Us_ArJ3wGLi3GBKwONtC5e" target="_blank">
             <span class="date">03 FEB 2025</span>
@@ -471,7 +446,6 @@
             <img src="WEREWRWERWRWE.png" alt="PSOAS">
           </a>
         </div>
-
         <div class="album-card">
           <a href="https://youtu.be/HzOn_sX5F84" target="_blank">
             <span class="date">24 FEB 2025</span>
@@ -479,7 +453,6 @@
             <img src="werwrwerwerwe.png" alt="FREESTYLE EP">
           </a>
         </div>
-
         <div class="album-card">
           <a href="https://www.youtube.com/playlist?list=PLXZidlush52UsquZtC4UXLiZyk2UoIKYN" target="_blank">
             <span class="date">06 SEP 2025</span>
@@ -487,7 +460,6 @@
             <img src="lui.png" alt="DOMINGO">
           </a>
         </div>
-
       </div>
     </div>
 
@@ -495,7 +467,6 @@
       <h2>DEJA ALGO</h2>
       <textarea id="commentInput" rows="3" placeholder="escribe algo... (enter para soltarlo)"></textarea>
     </div>
-
   </div>
 
   <footer>
@@ -504,7 +475,6 @@
   </footer>
 
   <script>
-    /* ===== EPHEMERAL COMMENTS ===== */
     const input = document.getElementById("commentInput");
     input.addEventListener("keydown", e => {
       if (e.key === "Enter") {
@@ -513,12 +483,10 @@
       }
     });
 
-    /* ===== DVD + MORPH ===== */
     const dvd = document.getElementById("dvdStar");
     const shape = document.getElementById("shape");
     const forms = ["star", "cross", "flat", "box"];
     let formIndex = 0;
-
     let x = 120;
     let y = 120;
     let vx = 2;
@@ -527,34 +495,20 @@
     function moveDVD() {
       const maxX = window.innerWidth - 140;
       const maxY = window.innerHeight - 140;
-
       x += vx;
       y += vy;
-
       let bounced = false;
-
-      if (x <= 0 || x >= maxX) {
-        vx *= -1;
-        bounced = true;
-      }
-      if (y <= 0 || y >= maxY) {
-        vy *= -1;
-        bounced = true;
-      }
-
+      if (x <= 0 || x >= maxX) { vx *= -1; bounced = true; }
+      if (y <= 0 || y >= maxY) { vy *= -1; bounced = true; }
       if (bounced) {
         formIndex = (formIndex + 1) % forms.length;
         shape.className = "shape " + forms[formIndex];
       }
-
       dvd.style.left = x + "px";
       dvd.style.top = y + "px";
-
       requestAnimationFrame(moveDVD);
     }
-
     moveDVD();
   </script>
-
 </body>
 </html>
