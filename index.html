@@ -26,6 +26,7 @@
       overflow-x: hidden;
     }
 
+    /* Efecto de líneas de escaneo CRT */
     body::after {
       content: "";
       position: fixed;
@@ -54,6 +55,42 @@
       padding: 25px;
       position: relative;
       z-index: 2;
+    }
+
+    /* CONTENEDOR DE VIDEO INTEGRADO */
+    .video-frame {
+      position: relative;
+      border: 1px solid white;
+      margin-bottom: 35px;
+      background: #000;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    .video-frame video {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(150%) brightness(0.8);
+      transition: filter 0.5s ease;
+    }
+
+    .video-frame:hover video {
+      filter: grayscale(0%) contrast(110%) brightness(1);
+    }
+
+    .video-label {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: white;
+      color: black;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: bold;
+      z-index: 10;
+      letter-spacing: 2px;
     }
 
     .glitch {
@@ -108,11 +145,10 @@
       gap: 40px;
     }
 
-    /* ESTO ARREGLA EL TELÉFONO */
     @media (max-width: 850px) {
       body { padding: 15px 10px; }
       .grid-layout {
-        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        grid-template-columns: 1fr;
         gap: 20px;
       }
       .main-container {
@@ -123,9 +159,6 @@
       .glitch {
         font-size: 24px;
         letter-spacing: 4px;
-      }
-      .visual-side {
-        width: 100%;
       }
     }
 
@@ -165,10 +198,6 @@
       text-align: justify;
       border: 1px solid #333;
       padding: 20px;
-    }
-
-    @media (max-width: 600px) {
-      .text-block { padding: 15px; text-align: left; }
     }
 
     p {
@@ -248,12 +277,7 @@
       box-sizing: border-box;
     }
 
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      padding-bottom: 40px;
-    }
-
+    /* ENTIDAD ESTRELLA FLOTANTE */
     .star-entity {
       position: fixed;
       left: 0;
@@ -266,17 +290,12 @@
       will-change: transform;
     }
 
-    @media (max-width: 600px) {
-      .star-entity { width: 80px; height: 80px; } /* Más pequeña en móvil */
-    }
-
     .shape {
       position: relative;
       width: 100%;
       height: 100%;
       transform-style: preserve-3d;
       animation: spin 10s infinite linear;
-      transition: all 0.4s ease;
     }
 
     .shape span {
@@ -287,6 +306,7 @@
       opacity: 0.35;
     }
 
+    /* Caras de la estrella */
     .shape.star span:nth-child(1) { transform: rotateY(0deg) translateZ(70px); }
     .shape.star span:nth-child(2) { transform: rotateY(60deg) translateZ(70px); }
     .shape.star span:nth-child(3) { transform: rotateY(120deg) translateZ(70px); }
@@ -301,6 +321,12 @@
       to { transform: rotateX(360deg) rotateY(360deg); }
     }
     
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      padding-bottom: 40px;
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -308,6 +334,7 @@
 </head>
 
 <body>
+
   <div class="star-entity" id="dvdStar">
     <div class="shape star" id="shape">
       <span></span><span></span><span></span><span></span>
@@ -316,6 +343,17 @@
   </div>
 
   <div class="main-container">
+    
+<a href="https://www.youtube.com/watch?v=GLcTo6TD_7Q" target="_blank" style="text-decoration: none; cursor: pointer; display: block;">
+  <div class="video-frame">
+    <div class="video-label">VER VIDEOCLIP OFICIAL // CLICK PARA REPRODUCIR</div>
+    <video autoplay loop muted playsinline>
+      <source src="0201 (6).mp4" type="video/mp4">
+      Tu navegador no soporta videos.
+    </video>
+  </div>
+</a>
+
     <div class="glitch" data-text="EDODIOSBOLA">EDODIOSBOLA</div>
 
     <div class="grid-layout">
@@ -326,8 +364,8 @@
         <a href="https://www.youtube.com/@edodiosbola" target="_blank" class="btn-main">CANAL DE YOUTUBE</a>
         <a href="https://www.instagram.com/edodiosbola.r/" target="_blank" class="btn-main">INSTAGRAM</a>
         <a href="https://edodiosbola.bandcamp.com/" target="_blank" class="btn-main">BANDCAMP</a>
-        
-        <div style="margin-top: 40px; border-top: 1px solid #111; padding-top: 20px; font-family: 'VT323', monospace; letter-spacing: 1px; line-height: 1.2;">
+       
+        <div style="margin-top: 40px; border-top: 1px solid #111; padding-top: 20px; font-family: 'Courier New', monospace; letter-spacing: 1px; line-height: 1.2;">
           <div style="color: #444; margin-bottom: 20px;">
             <p style="margin: 2px 0;">LOC: GUAYAQUIL_GUAYACANES</p>
             <p style="margin: 2px 0;">ORIGIN: PASAJE_7_RAZA</p>
@@ -345,25 +383,25 @@
 
       <div class="content">
         <div class="text-block">
-        <p>
-    Empecé en el rap porque mi carrera de ser cantante se vio opacada por mi expectativa y la realidad; intenté estar en una escuela de canto pero solo duré un puto día. Desde pequeño me gustaba editar fotos para subirlas a Facebook, era muy divertido; las editaba con texto, figuras o lo que sea para destruirlas. De ahí nunca imaginé esto como algo, sabes.
-  </p>
+          <p>
+            Empecé en el rap porque mi carrera de ser cantante se vio opacada por mi expectativa y la realidad; intenté estar en una escuela de canto pero solo duré un día. Desde pequeño me gustaba editar fotos para subirlas a Facebook, era muy divertido; las editaba con texto, figuras o lo que sea para destruirlas. De ahí nunca imaginé esto como algo, sabes.
+          </p>
 
-  <p>
-    Vengo ya de un ambiente artístico. Mi hermano es un excelente dibujante y pintor, él ya era un artista. Nunca me incliné por lo que él hacía, siempre éramos muy diferentes. De pequeño era amigo de todo el mundo, pero una vez crecí dejé eso y me volví algo reservado, más para mi grupo o quienes ya estaban, y eso fue lo mejor que me pasó; me ayudó a poder estar con todo esto. Trabajé como editor y fotógrafo por casi 5 años en un estudio fotográfico en Pasaje.
-  </p>
+          <p>
+            Vengo ya de un ambiente artístico. Mi hermano es un excelente dibujante y pintor, él ya era un artista. Nunca me incliné por lo que él hacía, siempre éramos muy diferentes. De pequeño era amigo de todo el mundo, pero una vez crecí dejé eso y me volví algo reservado, más para mi grupo o quienes ya estaban, y eso fue lo mejor que me pasó; me ayudó a poder estar con todo esto. Trabajé como editor y fotógrafo por casi 5 años en un estudio fotográfico en Pasaje.
+          </p>
 
-  <p>
-    Mi primera canción la escribí no sé a qué edad. Recuerdo que al escribir no me salía nada y dije: "mierda, esto de hacer canciones y letras es muy jodido". Mi ambiente en la casa era una mezcla de mi abuelo y música moderna que salía por su radio. No diría que fui de la época de MTV ya que no había cable en la tele; pero cuando tuvimos acceso a internet se voló todo.
-  </p>
+          <p>
+            Mi primera canción la escribí no sé a qué edad. Recuerdo que al escribir no me salía nada y dije: "esto de hacer canciones y letras es muy dificil". Mi ambiente en la casa era una mezcla de mi abuelo y música moderna que salía por su radio. No diría que fui de la época de MTV ya que no había cable en la tele; pero cuando tuvimos acceso a internet se voló todo.
+          </p>
 
-  <p>
-    En mis gustos musicales era lo que sonaba en la casa: mi hermano con rock, metal y pop. Fue muy loco verlo pasar de tocar con una escoba en la casa a tener una guitarra real y tocar en vivo. Mi primer acercamiento a música loca fue gracias a mi tío cuando vino de España y trajo CDs de Sepultura; el videoclip de Ratamahatta me impactó mucho, me daba miedo y me gustaba a la vez.
-  </p>
+          <p>
+            En mis gustos musicales era lo que sonaba en la casa: mi hermano con rock, metal y pop. Fue muy loco verlo pasar de tocar con una escoba en la casa a tener una guitarra real y tocar en vivo. Mi primer acercamiento a música loca fue gracias a mi tío cuando vino de España y trajo CDs de Sepultura; el videoclip de Ratamahatta me impactó mucho, me daba miedo y me gustaba a la vez.
+          </p>
 
-  <p>
-    De ahí cayó la pandemia. Terminé mi estudio en línea, fue una mierda, pero fue la chispa para empezar con todo. Pasé por muchos nombres, desde Stay-C hasta Yung Letall, con el cual conocí a personas que ayudaron a mejorar mi producción. Estuve unos cuantos años así hasta que decidí que no necesitaba una fachada. Recapitulando en mi pasado, recordé mi primer correo: edogodball. Solo hice lo que tenía que hacer: lo traduje. Bajo este nombre dije "al diablo todo" y comencé a darle forma desde 0. Ya son 5 álbumes y el resto que falta por escribir.
-  </p>
+          <p>
+            De ahí cayó la pandemia. Terminé mi estudio en línea, fue una mierda, pero fue la chispa para empezar con todo. Pasé por muchos nombres, desde Stay-C hasta Yung Letall, con el cual conocí a personas que ayudaron a mejorar mi producción. Estuve unos cuantos años así hasta que decidí que no necesitaba una fachada. Recapitulando en mi pasado, recordé mi primer correo: edogodball. Solo hice lo que tenía que hacer: lo traduje. Bajo este nombre dije "al diablo todo" y comencé a darle forma desde 0. Ya son 5 álbumes y el resto que falta por escribir.
+          </p>
 
           <img src="IMG_20230501_193136 (1).jpg" alt="UNNAMED 0">
         </div>
@@ -373,6 +411,7 @@
     <div class="discography">
       <h2>MÚSICA</h2>
       <div class="album-grid">
+        
         <div class="album-card">
           <a href="https://youtu.be/TBLSsgfv3zA?list=PLXZidlush52Xo8QDT8O9xEs7tReRbVf3n" target="_blank">
             <span class="date">31 AGO 2024</span>
@@ -380,6 +419,7 @@
             <img src="tyteyeyr.png" alt="UNNAMED 0">
           </a>
         </div>
+
         <div class="album-card">
           <a href="https://youtu.be/HzOn_sX5F84?list=PLXZidlush52W8_pc2OwMoTbAtWycgymIu" target="_blank">
             <span class="date">05 OCT 2024</span>
@@ -387,6 +427,7 @@
             <img src="werwrwewerwer.png" alt="EXPRESIÓN NATURAL">
           </a>
         </div>
+
         <div class="album-card">
           <a href="https://www.youtube.com/watch?v=Dz6Z8YNlR0s&list=PLXZidlush52VXjVnFBlx6lhqWIkBNo5Zf" target="_blank">
             <span class="date">28 OCT 2024</span>
@@ -394,6 +435,7 @@
             <img src="aaaaa.png" alt="OXIGENO 20">
           </a>
         </div>
+
         <div class="album-card">
           <a href="https://youtu.be/e2dTCvn0d9w?list=PLXZidlush52Us_ArJ3wGLi3GBKwONtC5e" target="_blank">
             <span class="date">03 FEB 2025</span>
@@ -401,6 +443,7 @@
             <img src="WEREWRWERWRWE.png" alt="PSOAS">
           </a>
         </div>
+
         <div class="album-card">
           <a href="https://youtu.be/HzOn_sX5F84" target="_blank">
             <span class="date">24 FEB 2025</span>
@@ -408,6 +451,7 @@
             <img src="werwrwerwerwe.png" alt="FREESTYLE EP">
           </a>
         </div>
+
         <div class="album-card">
           <a href="https://www.youtube.com/playlist?list=PLXZidlush52UsquZtC4UXLiZyk2UoIKYN" target="_blank">
             <span class="date">06 SEP 2025</span>
@@ -415,6 +459,15 @@
             <img src="lui.png" alt="DOMINGO">
           </a>
         </div>
+
+        <div class="album-card">
+          <a href="https://e-alpha-livid.vercel.app/" target="_blank">
+            <span class="date">31 ENE 2026</span>
+            <div>"No hay peor condena que la perfección hasta que la máquina falla" [ALBUM]</div>
+            <img src="eee.png" alt="No hay peor condena">
+          </a>
+        </div>
+
       </div>
     </div>
 
@@ -439,8 +492,7 @@
     });
 
     const dvd = document.getElementById("dvdStar");
-    const shape = document.getElementById("shape");
-    let x = 50, y = 50, vx = 2, vy = 1.7;
+    let x = 50, y = 50, vx = 1.8, vy = 1.4;
 
     function moveDVD() {
       const maxX = window.innerWidth - dvd.offsetWidth;
