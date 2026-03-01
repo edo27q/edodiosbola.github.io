@@ -14,89 +14,71 @@
   <meta property="og:image" content="https://tu-web.vercel.app/ewrwrwrwe.png"> 
   <meta name="robots" content="index, follow">
 
-  <style>
-    :root {
-      --accent: #ff0000;
-      --bg: #000000;
-      --text: #ffffff;
-      --dim: rgba(255, 255, 255, 0.6);
-    }
-
-    * { box-sizing: border-box; }
-
+<style>
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Courier New', Courier, monospace;
+      background: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      font-family: Courier, monospace;
       margin: 0;
       padding: 40px 20px;
       text-transform: uppercase;
       overflow-x: hidden;
-      line-height: 1.6;
     }
-
-    /* Efecto CRT Scanlines mejorado */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(
-        rgba(18, 16, 16, 0) 50%,
-        rgba(0, 0, 0, 0.25) 50%
-      ), linear-gradient(
-        90deg,
-        rgba(255, 0, 0, 0.06),
-        rgba(0, 255, 0, 0.02),
-        rgba(0, 0, 255, 0.06)
-      );
-      background-size: 100% 4px, 3px 100%;
-      pointer-events: none;
-      z-index: 1000;
-    }
+    
 
     .main-container {
-      border: 2px solid var(--text);
+      border: 2px solid white;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 30px;
+      padding: 25px;
       position: relative;
       z-index: 2;
-      background: var(--bg);
     }
 
-    /* Glitch central */
     .glitch {
       position: relative;
-      font-size: clamp(24px, 5vw, 42px);
-      letter-spacing: 10px;
+      font-size: 32px;
+      letter-spacing: 8px;
       text-align: center;
-      background: var(--text);
-      color: var(--bg);
-      padding: 15px;
-      margin-bottom: 50px;
-      font-weight: bold;
+      background: white;
+      color: black;
+      padding: 10px 20px;
+      margin-bottom: 40px;
     }
 
-    .glitch::before, .glitch::after {
+    .glitch::before,
+    .glitch::after {
       content: attr(data-text);
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: var(--text);
+      left: 0;
+      top: 0;
+      width: 100%;
+      background: white;
+      overflow: hidden;
     }
 
-    .glitch::before { left: 2px; text-shadow: -2px 0 #ff00c1; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 5s infinite linear alternate-reverse; }
-    .glitch::after { left: -2px; text-shadow: -2px 0 #00fff9; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim2 5s infinite linear alternate-reverse; }
-
-    @keyframes glitch-anim {
-      0% { clip: rect(10px, 9999px, 30px, 0); }
-      20% { clip: rect(60px, 9999px, 80px, 0); }
-      100% { clip: rect(40px, 9999px, 50px, 0); }
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 red;
+      animation: glitchTop 1.5s infinite linear alternate-reverse;
     }
 
-    @keyframes glitch-anim2 {
-      0% { clip: rect(50px, 9999px, 70px, 0); }
-      30% { clip: rect(20px, 9999px, 40px, 0); }
-      100% { clip: rect(70px, 9999px, 90px, 0); }
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 cyan;
+      animation: glitchBottom 1s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 80% 0); }
+      50% { clip-path: inset(40% 0 20% 0); }
+      100% { clip-path: inset(10% 0 60% 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip-path: inset(60% 0 10% 0); }
+      50% { clip-path: inset(20% 0 40% 0); }
+      100% { clip-path: inset(80% 0 0 0); }
     }
 
     .grid-layout {
@@ -106,137 +88,146 @@
     }
 
     @media (max-width: 850px) {
-      .grid-layout { grid-template-columns: 1fr; }
-      .main-container { padding: 15px; }
+      body { padding: 15px 10px; }
+      .grid-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .main-container {
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .glitch {
+        font-size: 24px;
+        letter-spacing: 4px;
+      }
     }
 
-    .visual-frame { border: 1px solid var(--text); overflow: hidden; }
-    
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: grayscale(100%) contrast(120%);
-      transition: transform 0.5s ease, filter 0.5s ease;
+    .visual-frame {
+      border: 1px solid white;
     }
 
-    img:hover {
-      filter: grayscale(0%) contrast(100%);
-      transform: scale(1.05);
-    }
+   img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.3s;
+  filter: none; /* Tus fotos personales se verán naturales */
+}
 
-    /* Botones con estilo terminal */
+
+  .album-card img:hover {
+  filter: invert(100%);
+  cursor: crosshair;}
+
     .btn-main {
       display: block;
-      border: 1px solid var(--text);
-      padding: 12px;
+      border: 1px solid white;
+      padding: 10px 20px;
       margin-top: 10px;
-      color: var(--text);
+      color: white;
       text-decoration: none;
       text-align: center;
-      transition: 0.3s;
-      font-size: 13px;
     }
 
     .btn-main:hover {
-      background: var(--text);
-      color: var(--bg);
-      letter-spacing: 3px;
+      background: white;
+      color: black;
     }
 
     .text-block {
-      border: 1px solid #222;
-      padding: 25px;
-      background: rgba(255,255,255,0.02);
+      text-align: justify;
+      border: 1px solid #333;
+      padding: 20px;
     }
 
-    /* Discografía */
+    p {
+      margin-bottom: 15px;
+      font-size: 14px;
+      line-height: 1.4;
+      opacity: 0.85;
+    }
+
     .discography {
-      margin-top: 60px;
-      border-top: 2px solid var(--text);
-      padding-top: 30px;
+      margin-top: 50px;
+      border-top: 2px solid white;
+      padding-top: 20px;
     }
 
     .album-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 25px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
     }
 
     .album-card {
-      border: 1px solid #333;
+      border: 1px solid white;
       padding: 15px;
-      background: var(--bg);
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      position: relative;
+      background: black;
+      transition: 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .album-card:hover {
-      border-color: var(--text);
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+      background: white;
+      color: black !important;
+      transform: scale(1.06);
+      box-shadow: 0 0 18px rgba(255,255,255,0.4);
     }
 
-    .album-card a { color: inherit; text-decoration: none; }
-    .date { font-size: 10px; color: var(--dim); display: block; margin-bottom: 8px; }
-    .album-title { font-size: 14px; margin-bottom: 10px; height: 35px; overflow: hidden; }
+    .album-card a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      height: 100%;
+    }
 
-    /* Comentarios Estilo Terminal */
-    #comments { margin-top: 60px; border-top: 2px solid var(--text); padding-top: 30px; }
-    
-    #commentInput {
-      width: 100%;
-      background: #0a0a0a;
-      color: #00ff00;
+    .album-card img {
+      margin-top: 10px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
       border: 1px solid #333;
-      padding: 15px;
-      font-family: 'Courier New', monospace;
+    }
+
+    .date {
+      font-size: 10px;
+      color: #888;
+      margin-bottom: 5px;
+    }
+
+    .album-card:hover .date {
+      color: black;
+    }
+
+    #comments {
+      margin-top: 60px;
+      border-top: 2px solid white;
+      padding-top: 20px;
+    }
+
+    #comments textarea {
+      width: 100%;
+      background: black;
+      color: white;
+      border: 1px solid white;
+      padding: 10px;
+      font-family: Courier, monospace;
       resize: none;
-      outline: none;
+      box-sizing: border-box;
     }
-
-    #commentInput:focus { border-color: var(--text); }
-
-    /* Estrella DVD 3D */
-    .star-entity {
-      position: fixed;
-      width: 100px; height: 100px;
-      pointer-events: none;
-      z-index: 1;
-      perspective: 600px;
-    }
-
-    .shape {
-      width: 100%; height: 100%;
-      transform-style: preserve-3d;
-      animation: spin 8s infinite linear;
-    }
-
-    .shape span {
-      position: absolute;
-      width: 100%; height: 100%;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    @keyframes spin {
-      from { transform: rotateX(0deg) rotateY(0deg); }
-      to { transform: rotateX(360deg) rotateY(360deg); }
-    }
-
     footer {
-      margin-top: 80px;
+      margin-top: 40px;
       text-align: center;
-      padding: 40px;
-      border-top: 1px solid #222;
+      padding-bottom: 40px;
     }
 
-    .metadata {
-      color: #444;
-      font-size: 11px;
-      margin-top: 20px;
+    html {
+      scroll-behavior: smooth;
     }
-    
+
   </style>
 </head>
 
@@ -259,17 +250,14 @@
     <div class="grid-layout">
       <div class="visual-side">
         <div class="visual-frame">
-          <img src="ewrwrwrwe.png" alt="EDODIOSBOLA PRINCIPAL">
+          <img src="IMG_20260228_101506.jpg.jpeg"EDODIOSBOLA PRINCIPAL">
         </div>
         <a href="https://www.youtube.com/@edodiosbola" target="_blank" class="btn-main">> YOUTUBE_CHNL</a>
         <a href="https://www.instagram.com/edodiosbola.r/" target="_blank" class="btn-main">> INSTAGRAM_FEED</a>
         <a href="https://edodiosbola.bandcamp.com/" target="_blank" class="btn-main">> BANDCAMP_DISCS</a>
        
         <div class="metadata">
-          <p>LOC: GUAYAQUIL_GUAYACANES</p>
-          <p>ORIGIN: PASAJE_7_RAZA</p>
-          <p>STATUS: ACTIVE_2026</p>
-          <p>ENCRYPTION: AES_EDO_6</p>
+        
         </div>
       </div>
 
@@ -324,7 +312,7 @@
         <div class="album-card">
           <a href="https://www.youtube.com/watch?v=FHFvDG06deA" target="_blank">
             <span class="date">24 FEB 2025</span>
-            <div class="album-title">"ME SIENTO UN PEDAZO DE MIERDA"</div>
+            <div class="album-title">"ME SIENTO UN PEDAZO DE MIERDA"[EP]</div>
             <img src="werwrwerwerwe.png" alt="FREESTYLE EP">
           </a>
         </div>
@@ -332,7 +320,7 @@
         <div class="album-card">
           <a href="https://www.youtube.com/playlist?list=PLXZidlush52UsquZtC4UXLiZyk2UoIKYN" target="_blank">
             <span class="date">06 SEP 2025</span>
-            <div class="album-title">DOMINGO FT. THE BIG LUIS</div>
+            <div class="album-title">DOMINGO FT. THE BIG LUIS[ALBUM]</div>
             <img src="lui.png" alt="DOMINGO">
           </a>
         </div>
@@ -340,7 +328,7 @@
         <div class="album-card" style="border-color: #555;">
           <a href="https://www.youtube.com/watch?v=cN6zZg9ICO8" target="_blank">
             <span class="date">31 ENE 2026</span>
-            <div class="album-title">"NO HAY PEOR CONDENA..."</div>
+            <div class="album-title">"NO HAY PEOR CONDENA ...."[ALBUM]</div>
             <img src="Sin título-1.png" alt="No hay peor condena">
           </a>
         </div>
@@ -402,7 +390,7 @@ function moveDVD() {
   requestAnimationFrame(moveDVD);
 }
 
-moveDVD();
+
   </script>
 </body>
 </html>
