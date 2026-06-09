@@ -1,404 +1,329 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>EDODIOSBOLA | SITIO OFICIAL </title>
-  <link rel="icon" href="werewrwrwrwe.jpg" type="image/png">
-  <meta name="description" content="Edodiosbola: Proyecto artístico independiente.">
-  
-  <meta name="google-site-verification" content="mLG7-y_ZmT_4YUojUmnTwfE_bjV6qzU2aY-j4esOwQw" />
-  <meta property="og:title" content="Edodiosbola | Sitio Oficial">
-  <meta property="og:image" content="https://tu-web.vercel.app/ewrwrwrwe.png"> 
-  <meta name="robots" content="index, follow">
-
-<style>
-    body {
-      background: rgb(0, 0, 0);
-      color: rgb(255, 255, 255);
-      font-family: Courier, monospace;
-      margin: 0;
-      padding: 40px 20px;
-      text-transform: uppercase;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDODIOSBOLA | SITIO OFICIAL</title>
     
+    <meta name="google-site-verification" content="mLG7-y_ZmT_4YUojUmnTwfE_bjV6qzU2aY-j4esOwQw">
+    <meta name="description" content="Edodiosbola.">
+    <meta name="robots" content="index, follow">
 
-    .main-container {
-      border: 2px solid white;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 25px;
-      position: relative;
-      z-index: 2;
-    }
+    <!-- Fuentes elegantes, minimalistas y finas -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
 
-    .glitch {
-      position: relative;
-      font-size: 32px;
-      letter-spacing: 8px;
-      text-align: center;
-      background: white;
-      color: black;
-      padding: 10px 20px;
-      margin-bottom: 40px;
-    }
+    <style>
+        /* Reset General */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      background: white;
-      overflow: hidden;
-    }
+        body {
+            background-color: #0d0d0d;
+            background-image: url('ascii-art.png');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px 80px 20px; 
+            overflow-x: hidden;
+        }
 
-    .glitch::before {
-      left: 2px;
-      text-shadow: -2px 0 red;
-      animation: glitchTop 1.5s infinite linear alternate-reverse;
-    }
+        /* TEXTO FIJO EN EL LATERAL IZQUIERDO */
+        .sidebar-left {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: left center;
+            color: rgba(255, 255, 255, 0.15);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 10;
+        }
 
-    .glitch::after {
-      left: -2px;
-      text-shadow: -2px 0 cyan;
-      animation: glitchBottom 1s infinite linear alternate-reverse;
-    }
+        /* TEXTO FIJO EN EL LATERAL DERECHO */
+        .sidebar-right {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            transform-origin: right center;
+            color: rgba(255, 255, 255, 0.15);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 10;
+        }
 
-    @keyframes glitchTop {
-      0% { clip-path: inset(0 0 80% 0); }
-      50% { clip-path: inset(40% 0 20% 0); }
-      100% { clip-path: inset(10% 0 60% 0); }
-    }
+        /* Contenedor del Logotipo (Grande para notar texturas) */
+        .logo-container {
+            width: 100%;
+            max-width: 580px; 
+            margin-bottom: 20px; 
+            text-align: center;
+        }
 
-    @keyframes glitchBottom {
-      0% { clip-path: inset(60% 0 10% 0); }
-      50% { clip-path: inset(20% 0 40% 0); }
-      100% { clip-path: inset(80% 0 0 0); }
-    }
+        .logo-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
 
-    .grid-layout {
-      display: grid;
-      grid-template-columns: 350px 1fr;
-      gap: 40px;
-    }
+        /* Contenedor del Video Limpio (Pegado al título) */
+        .video-container {
+            width: 100%;
+            max-width: 680px;
+            margin-bottom: 40px;
+        }
 
-    @media (max-width: 850px) {
-      body { padding: 15px 10px; }
-      .grid-layout {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .main-container {
-        padding: 15px;
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .glitch {
-        font-size: 24px;
-        letter-spacing: 4px;
-      }
-    }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #000;
+        }
 
-    .visual-frame {
-      border: 1px solid white;
-    }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
 
-   img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: 0.3s;
-  filter: none; /* Tus fotos personales se verán naturales */
-}
+        /* Contenedor de Bandcamp */
+        .audio-container {
+            width: 100%;
+            max-width: 680px;
+            margin-bottom: 55px;
+            text-align: center;
+        }
 
+        .audio-container p {
+            color: #666666;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
 
-  .album-card img:hover {
-  filter: invert(100%);
-  cursor: crosshair;}
+        .audio-wrapper {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #0d0d0d;
+            padding: 5px;
+        }
 
-    .btn-main {
-      display: block;
-      border: 1px solid white;
-      padding: 10px 20px;
-      margin-top: 10px;
-      color: white;
-      text-decoration: none;
-      text-align: center;
-    }
+        /* Distribución de Botones Horizontales */
+        .links-section {
+            text-align: center;
+            margin-bottom: 70px;
+            width: 100%;
+            max-width: 680px;
+        }
 
-    .btn-main:hover {
-      background: white;
-      color: black;
-    }
+        .links-section p {
+            color: #666666;
+            font-size: 0.75rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 400;
+        }
 
-    .text-block {
-      text-align: justify;
-      border: 1px solid #333;
-      padding: 20px;
-    }
+        .row-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
 
-    p {
-      margin-bottom: 15px;
-      font-size: 14px;
-      line-height: 1.4;
-      opacity: 0.85;
-    }
+        /* Botones Minimalistas Finos */
+        .btn {
+            display: inline-block;
+            padding: 8px 22px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            transition: all 0.25s ease-in-out;
+            background: rgba(13, 13, 13, 0.5);
+            backdrop-filter: blur(4px);
+        }
 
-    .discography {
-      margin-top: 50px;
-      border-top: 2px solid white;
-      padding-top: 20px;
-    }
+        .btn:hover {
+            border-color: #ffffff;
+            color: #000000;
+            background-color: #ffffff;
+            letter-spacing: 3px; 
+        }
 
-    .album-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
+        /* Footer / Contacto Estilizado */
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 20px;
+            width: 100%;
+        }
 
-    .album-card {
-      border: 1px solid white;
-      padding: 15px;
-      background: black;
-      transition: 0.2s ease;
-      display: flex;
-      flex-direction: column;
-    }
+        footer span {
+            color: #666666;
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
 
-    .album-card:hover {
-      background: white;
-      color: black !important;
-      transform: scale(1.06);
-      box-shadow: 0 0 18px rgba(255,255,255,0.4);
-    }
+        .email-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            cursor: pointer;
+            text-decoration: underline;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
 
-    .album-card a {
-      color: inherit;
-      text-decoration: none;
-      display: block;
-      height: 100%;
-    }
+        .email-btn:hover {
+            color: #ffffff;
+        }
 
-    .album-card img {
-      margin-top: 10px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border: 1px solid #333;
-    }
+        /* Alerta minimalista de copiado */
+        .toast {
+            position: fixed;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #ffffff;
+            color: #000000;
+            padding: 6px 14px;
+            font-size: 0.7rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: transform 0.2s ease;
+            z-index: 1000;
+            pointer-events: none;
+        }
 
-    .date {
-      font-size: 10px;
-      color: #888;
-      margin-bottom: 5px;
-    }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
 
-    .album-card:hover .date {
-      color: black;
-    }
-
-    #comments {
-      margin-top: 60px;
-      border-top: 2px solid white;
-      padding-top: 20px;
-    }
-
-    #comments textarea {
-      width: 100%;
-      background: black;
-      color: white;
-      border: 1px solid white;
-      padding: 10px;
-      font-family: Courier, monospace;
-      resize: none;
-      box-sizing: border-box;
-    }
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      padding-bottom: 40px;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-  </style>
+        /* Responsivo para celulares */
+        @media (max-width: 768px) {
+            .sidebar-left, .sidebar-right {
+                display: none; 
+            }
+            .logo-container {
+                max-width: 90%; 
+                margin-bottom: 15px;
+            }
+            .row-links {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 30px;
+                gap: 15px;
+            }
+            .btn {
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-  <div class="star-entity" id="dvdStar">
-    <div class="shape">
-      <span style="transform: rotateY(0deg) translateZ(50px)"></span>
-      <span style="transform: rotateY(90deg) translateZ(50px)"></span>
-      <span style="transform: rotateY(180deg) translateZ(50px)"></span>
-      <span style="transform: rotateY(270deg) translateZ(50px)"></span>
-      <span style="transform: rotateX(90deg) translateZ(50px)"></span>
-      <span style="transform: rotateX(-90deg) translateZ(50px)"></span>
-    </div>
-  </div>
+    <!-- Elementos para los laterales sugeridos -->
+    <div class="sidebar-left">// audio processor // independent system</div>
+    <div class="sidebar-right">// monotoxic digital recordings</div>
 
-  <div class="main-container">
-    <div class="glitch" data-text="EDODIOSBOLA">EDODIOSBOLA</div>
-
-    <div class="grid-layout">
-      <div class="visual-side">
-        <div class="visual-frame">
-          <img src="IMG_20260228_101506.jpg.jpeg"EDODIOSBOLA PRINCIPAL">
-        </div>
-        <a href="https://www.youtube.com/@edodiosbola" target="_blank" class="btn-main">> YOUTUBE_CHNL</a>
-        <a href="https://www.instagram.com/edodiosbola.r/" target="_blank" class="btn-main">> INSTAGRAM_FEED</a>
-        <a href="https://edodiosbola.bandcamp.com/" target="_blank" class="btn-main">> BANDCAMP_DISCS</a>
-       
-        <div class="metadata">
-        
-        </div>
-      </div>
-
-      <div class="content">
-        <div class="text-block">
-          <p>
-            Empecé en el rap porque mi carrera de ser cantante se vio opacada por mi expectativa y la realidad...
-          </p>
-          <div class="visual-frame" style="margin-top:20px;">
-            <img src="IMG_20230501_193136 (1).jpg" alt="EDODIOSBOLA SESSION">
-          </div>
-        </div>
-      </div>
+    <!-- Contenedor del logotipo -->
+    <div class="logo-container">
+        <img src="letra.png" alt="EDODIOSBOLA" class="logo-img">
     </div>
 
-    <div class="discography">
-      <h2>Música</h2>
-      <div class="album-grid">
-        
-        <div class="album-card">
-          <a href="https://youtu.be/TBLSsgfv3zA?list=PLXZidlush52Xo8QDT8O9xEs7tReRbVf3n" target="_blank">
-            <span class="date">31 AGO 2024</span>
-            <div class="album-title">UNNAMED 0 [ALBUM]</div>
-            <img src="tyteyeyr.png" alt="UNNAMED 0">
-          </a>
+    <!-- Contenedor del Video de YouTube -->
+    <div class="video-container">
+        <div class="video-wrapper">
+            <iframe 
+                src="https://youtube.com" 
+                title="EDODIOSBOLA" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
-
-        <div class="album-card">
-          <a href="https://youtu.be/HzOn_sX5F84?list=PLXZidlush52W8_pc2OwMoTbAtWycgymIu" target="_blank">
-            <span class="date">05 OCT 2024</span>
-            <div class="album-title">PAQ#1 "EXPRESIÓN NATURAL" [EP]</div>
-            <img src="werwrwewerwer.png" alt="EXPRESIÓN NATURAL">
-          </a>
-        </div>
-
-        <div class="album-card">
-          <a href="https://www.youtube.com/watch?v=Dz6Z8YNlR0s&list=PLXZidlush52VXjVnFBlx6lhqWIkBNo5Zf" target="_blank">
-            <span class="date">28 OCT 2024</span>
-            <div class="album-title">"OXIGENO 20" [ALBUM]</div>
-            <img src="aaaaa.png" alt="OXIGENO 20">
-          </a>
-        </div>
-
-        <div class="album-card">
-          <a href="https://youtu.be/e2dTCvn0d9w?list=PLXZidlush52Us_ArJ3wGLi3GBKwONtC5e" target="_blank">
-            <span class="date">03 FEB 2025</span>
-            <div class="album-title">"PSOAS" [ALBUM]</div>
-            <img src="WEREWRWERWRWE.png" alt="PSOAS">
-          </a>
-        </div>
-
-        <div class="album-card">
-          <a href="https://www.youtube.com/watch?v=FHFvDG06deA" target="_blank">
-            <span class="date">24 FEB 2025</span>
-            <div class="album-title">"ME SIENTO UN PEDAZO DE MIERDA"[EP]</div>
-            <img src="werwrwerwerwe.png" alt="FREESTYLE EP">
-          </a>
-        </div>
-
-        <div class="album-card">
-          <a href="https://www.youtube.com/playlist?list=PLXZidlush52UsquZtC4UXLiZyk2UoIKYN" target="_blank">
-            <span class="date">06 SEP 2025</span>
-            <div class="album-title">DOMINGO FT. THE BIG LUIS[ALBUM]</div>
-            <img src="lui.png" alt="DOMINGO">
-          </a>
-        </div>
-
-        <div class="album-card" style="border-color: #555;">
-          <a href="https://www.youtube.com/watch?v=cN6zZg9ICO8" target="_blank">
-            <span class="date">31 ENE 2026</span>
-            <div class="album-title">"NO HAY PEOR CONDENA ...."[ALBUM]</div>
-            <img src="Sin título-1.png" alt="No hay peor condena">
-          </a>
-        </div>
-
-          <div class="album-card">
-          <a href="https://youtu.be/WDHMxBE7S4o?si=i4JePDOdwEXvT-Si   " target="_blank">
-            <span class="date"> 10 MAR 2026</span>
-            <div class="album-title">MONZA SP 2004[EP INST] </div>
-            <img src="werererwre.png" alt="DOMINGO">
-          </a>
-        </div>
-
-
-      </div>
     </div>
 
-    <div id="comments">
-      <h2>SISTEMA_DE_MENSAJERÍA</h2>
-      <textarea id="commentInput" rows="3" placeholder="ESCRIBE Y PULSA ENTER PARA TRANSMITIR..."></textarea>
+    <!-- Reproductor de Bandcamp con el track "el sol me da en la cara.... decapitación part 1" enlazado -->
+    <div class="audio-container">
+        <p>// escucha directa</p>
+        <div class="audio-wrapper">
+            <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com" seamless>
+                <a href="https://edodiosbola.bandcamp.com/track/el-sol-me-da-en-la-cara-decapitaci-n-part-1">el sol me da en la cara.... decapitación part 1 by EDODIOSBOLA</a>
+            </iframe>
+        </div>
     </div>
-  </div>
 
-  <footer>
-    <p style="font-size:16px; letter-spacing: 2px;">CONTACTO: EDODIOSBOLA.R@GMAIL.COM</p>
-    <p style="font-size:10px; opacity:0.3; margin-top: 20px;">GAUSIANO // 2026 // ALL RIGHTS OBSERVED</p>
-  </footer>
+    <!-- Enlaces en fila horizontal -->
+    <div class="links-section">
+        <p>// plataformas</p>
+        <div class="row-links">
+            <a href="https://edodiosbola.bandcamp.com/" target="_blank" rel="noopener" class="btn">Bandcamp</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="btn">YouTube</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="btn">Instagram</a>
+        </div>
+    </div>
 
-  <script>
-const dvd = document.getElementById("dvdStar");
-const faces = dvd.querySelectorAll('.shape span'); 
-let x = Math.random() * (window.innerWidth - 100);
-let y = Math.random() * (window.innerHeight - 100);
-let vx = 1.3;
-let vy = 1.3;
+    <!-- Sección de Contacto -->
+    <footer>
+        <span>Contacto //</span>
+        <button class="email-btn" onclick="copyEmail()">edodiosbola.r@gmail.com</button>
+    </footer>
 
-// Aplicamos la transición de forma una sola vez al inicio
-faces.forEach(face => {
-  face.style.transition = "border-radius 0.8s cubic-bezier(0.4, 0, 0.2, 1)";
-});
+    <!-- Notificación de Portapapeles -->
+    <div id="toast" class="toast">Copiado</div>
 
-function moveDVD() {
-  const maxX = window.innerWidth - dvd.offsetWidth;
-  const maxY = window.innerHeight - dvd.offsetHeight;
-  
-  x += vx;
-  y += vy;
+    <script>
+        function copyEmail() {
+            const email = "edodiosbola.r@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 1500);
+            });
+        }
+    </script>
 
-  let collision = false;
-
-  if (x <= 0 || x >= maxX) {
-    vx *= -1;
-    collision = true;
-  }
-  if (y <= 0 || y >= maxY) {
-    vy *= -1;
-    collision = true;
-  }
-
-  if (collision) {
-    // Genera una forma nueva: desde cubo (0%) hasta esfera (50%) o formas mixtas
-    const newRadius = Math.floor(Math.random() * 55) + "%";
-    faces.forEach(face => {
-      face.style.borderRadius = newRadius;
-    });
-  }
-
-  dvd.style.transform = `translate(${x}px, ${y}px)`;
-  requestAnimationFrame(moveDVD);
-}
-
-
-  </script>
 </body>
 </html>
