@@ -100,7 +100,7 @@
             padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgb(245, 245, 245);
             background: #000;
         }
 
@@ -121,7 +121,7 @@
         }
 
         .audio-container p {
-            color: #666666;
+            color: #ffffff;
             font-size: 0.75rem;
             margin-bottom: 15px;
             text-transform: uppercase;
@@ -143,7 +143,7 @@
         }
 
         .links-section p {
-            color: #666666;
+            color: #ffffff;
             font-size: 0.75rem;
             margin-bottom: 25px;
             text-transform: uppercase;
@@ -190,7 +190,7 @@
         }
 
         footer span {
-            color: #666666;
+            color: #ffffff;
             display: block;
             font-size: 0.7rem;
             text-transform: uppercase;
@@ -201,7 +201,7 @@
         .email-btn {
             background: transparent;
             border: none;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.932);
             font-family: 'Inter', sans-serif;
             font-size: 0.85rem;
             font-weight: 300;
@@ -294,11 +294,11 @@
     <!-- Sección de Enlaces -->
     <div class="links-section">
         <p>Enlaces Oficiales</p>
-        <div class="row-links">
-            <a href="#" class="btn">Bandcamp</a>
-            <a href="#" class="btn">YouTube</a>
-            <a href="#" class="btn">Instagram</a>
-        </div>
+    <div class="row-links">
+    <a href="https://edodiosbola.bandcamp.com/" class="btn" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+    <a href="https://www.youtube.com/@edodiosbola" class="btn" target="_blank" rel="noopener noreferrer">YouTube</a>
+    <a href="https://www.instagram.com/edodiosbola/" class="btn" target="_blank" rel="noopener noreferrer">Instagram</a>
+</div>
     </div>
 
     <!-- Alerta Toast (Opcional) -->
@@ -307,13 +307,13 @@
     <!-- Footer -->
     <footer>
         <span>Contacto</span>
-        <button class="email-btn" onclick="copyEmail()">info@edodiosbola.com</button>
+        <button class="email-btn" onclick="copyEmail()">edodiosbola.r@gmail.com</button>
     </footer>
 
     <!-- Script funcional para copiar correo -->
     <script>
         function copyEmail() {
-            const email = "info@edodiosbola.com";
+            const email = "edodiosbola.r@gmail.com";
             navigator.clipboard.writeText(email).then(() => {
                 const toast = document.getElementById('toast');
                 toast.classList.add('show');
