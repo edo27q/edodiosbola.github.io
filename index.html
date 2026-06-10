@@ -12,16 +12,26 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            background-color: #0d0d0d;
+        /* Solución para el fondo estable */
+        .bg-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100dvh; /* Usa altura dinámica para evitar saltos en móviles */
+            z-index: -1;
             background-image: url('ascii-art.png');
             background-size: cover;
             background-position: center center;
-            background-attachment: fixed;
             background-repeat: no-repeat;
+            background-color: #0d0d0d;
+        }
+
+        body {
+            background-color: #0d0d0d;
             color: #ffffff;
             font-family: 'Inter', sans-serif;
-            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -29,12 +39,10 @@
             overflow-x: hidden;
         }
 
-        .sidebar-left {
+        .sidebar-left, .sidebar-right {
             position: fixed;
-            left: 20px;
             top: 50%;
             transform: translateY(-50%) rotate(-90deg);
-            transform-origin: left center;
             color: rgba(255, 255, 255, 0.15);
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.7rem;
@@ -45,21 +53,8 @@
             z-index: 10;
         }
 
-        .sidebar-right {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%) rotate(90deg);
-            transform-origin: right center;
-            color: rgba(255, 255, 255, 0.15);
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 10;
-        }
+        .sidebar-left { left: 20px; transform-origin: left center; }
+        .sidebar-right { right: 20px; transform: translateY(-50%) rotate(90deg); transform-origin: right center; }
 
         .logo-container { width: 100%; max-width: 580px; margin-bottom: 20px; text-align: center; }
         .logo-img { width: 100%; height: auto; display: block; margin: 0 auto; }
@@ -97,7 +92,6 @@
         footer span { color: #ffffff; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; }
         .email-btn { background: transparent; border: none; color: rgba(255, 255, 255, 0.932); font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 300; cursor: pointer; text-decoration: underline; letter-spacing: 1px; }
 
-        /* Media Query mínima para evitar desbordamiento */
         @media (max-width: 768px) {
             .sidebar-left, .sidebar-right { display: none; }
             .logo-container { max-width: 90%; }
@@ -106,6 +100,8 @@
     </style>
 </head>
 <body>
+    <div class="bg-fixed"></div>
+
     <div class="sidebar-left">// audio processor // independent system</div>
     <div class="sidebar-right">// monotoxic digital recordings</div>
 
