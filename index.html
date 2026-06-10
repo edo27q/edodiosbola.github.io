@@ -33,15 +33,18 @@
         }
 
         .bg-fixed {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background-image: url('ascii-art.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100vw; /* Asegura que ocupe todo el ancho de la ventana */
+    height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+    z-index: -1;
+    background-image: url('ascii-art.png');
+    background-size: cover; /* Mantiene la proporción cubriendo el área */
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* Eliminamos background-attachment: fixed; que suele causar errores en móviles */
+}
 
         html, body {
             height: 100%;
