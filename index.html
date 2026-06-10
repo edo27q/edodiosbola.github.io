@@ -2,25 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>EDODIOSBOLA | SITIO OFICIAL</title>
     
-    <meta name="google-site-verification" content="mLG7-y_ZmT_4YUojUmnTwfE_bjV6qzU2aY-j4esOwQw">
-    <meta name="description" content="Edodiosbola.">
-    <meta name="robots" content="index, follow">
-
-    <!-- Fuentes elegantes, minimalistas y finas -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        /* Reset General */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: #0d0d0d;
@@ -35,11 +25,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px 20px 80px 20px; 
+            padding: 50px 20px 80px 20px;
             overflow-x: hidden;
         }
 
-        /* TEXTO FIJO EN EL LATERAL IZQUIERDO */
         .sidebar-left {
             position: fixed;
             left: 20px;
@@ -56,7 +45,6 @@
             z-index: 10;
         }
 
-        /* TEXTO FIJO EN EL LATERAL DERECHO */
         .sidebar-right {
             position: fixed;
             right: 20px;
@@ -73,92 +61,21 @@
             z-index: 10;
         }
 
-        /* Contenedor del Logotipo (Grande para notar texturas) */
-        .logo-container {
-            width: 100%;
-            max-width: 580px; 
-            margin-bottom: 20px; 
-            text-align: center;
-        }
+        .logo-container { width: 100%; max-width: 580px; margin-bottom: 20px; text-align: center; }
+        .logo-img { width: 100%; height: auto; display: block; margin: 0 auto; }
 
-        .logo-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
+        .video-container { width: 100%; max-width: 680px; margin-bottom: 40px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 1px solid rgb(245, 245, 245); background: #000; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* Contenedor del Video Limpio (Pegado al título) */
-        .video-container {
-            width: 100%;
-            max-width: 680px;
-            margin-bottom: 40px;
-        }
-        
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; 
-            height: 0;
-            overflow: hidden;
-            border: 1px solid rgb(245, 245, 245);
-            background: #000;
-        }
+        .audio-container { width: 100%; max-width: 680px; margin-bottom: 55px; text-align: center; }
+        .audio-container p { color: #ffffff; font-size: 0.75rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 4px; }
+        .audio-wrapper { border: 1px solid rgba(255, 255, 255, 0.15); background: #0d0d0d; padding: 5px; }
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        .links-section { text-align: center; margin-bottom: 70px; width: 100%; max-width: 680px; }
+        .links-section p { color: #ffffff; font-size: 0.75rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 4px; font-weight: 400; }
+        .row-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
 
-        /* Contenedor de Bandcamp */
-        .audio-container {
-            width: 100%;
-            max-width: 680px;
-            margin-bottom: 55px;
-            text-align: center;
-        }
-
-        .audio-container p {
-            color: #ffffff;
-            font-size: 0.75rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-        }
-
-        .audio-wrapper {
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background: #0d0d0d;
-            padding: 5px;
-        }
-
-        /* Distribución de Botones Horizontales */
-        .links-section {
-            text-align: center;
-            margin-bottom: 70px;
-            width: 100%;
-            max-width: 680px;
-        }
-
-        .links-section p {
-            color: #ffffff;
-            font-size: 0.75rem;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 400;
-        }
-
-        .row-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
-
-        /* Botones Minimalistas Finos */
         .btn {
             display: inline-block;
             padding: 8px 22px;
@@ -174,155 +91,53 @@
             backdrop-filter: blur(4px);
         }
 
-        .btn:hover {
-            border-color: #ffffff;
-            color: #000000;
-            background-color: #ffffff;
-            letter-spacing: 3px; 
-        }
+        .btn:hover { border-color: #ffffff; color: #000000; background-color: #ffffff; letter-spacing: 3px; }
 
-        /* Footer / Contacto Estilizado */
-        footer {
-            text-align: center;
-            margin-top: auto;
-            padding-top: 20px;
-            width: 100%;
-        }
+        footer { text-align: center; margin-top: auto; padding-top: 20px; width: 100%; }
+        footer span { color: #ffffff; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; }
+        .email-btn { background: transparent; border: none; color: rgba(255, 255, 255, 0.932); font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 300; cursor: pointer; text-decoration: underline; letter-spacing: 1px; }
 
-        footer span {
-            color: #ffffff;
-            display: block;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-
-        .email-btn {
-            background: transparent;
-            border: none;
-            color: rgba(255, 255, 255, 0.932);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 300;
-            cursor: pointer;
-            text-decoration: underline;
-            letter-spacing: 1px;
-            transition: color 0.2s;
-        }
-
-        .email-btn:hover {
-            color: #ffffff;
-        }
-
-        /* Alerta minimalista de copiado */
-        .toast {
-            position: fixed;
-            bottom: 35px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #ffffff;
-            color: #000000;
-            padding: 6px 14px;
-            font-size: 0.7rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: transform 0.2s ease;
-            z-index: 1000;
-            pointer-events: none;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        /* Responsivo para celulares */
+        /* Media Query mínima para evitar desbordamiento */
         @media (max-width: 768px) {
-            .sidebar-left, .sidebar-right {
-                display: none; 
-            }
-            .logo-container {
-                max-width: 90%; 
-                margin-bottom: 15px;
-            }
-            .row-links {
-                flex-direction: column;
-                width: 100%;
-                padding: 0 30px;
-                gap: 15px;
-            }
-            .btn {
-                display: block;
-                text-align: center;
-            }
+            .sidebar-left, .sidebar-right { display: none; }
+            .logo-container { max-width: 90%; }
+            .row-links { padding: 0 20px; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Elementos para los laterales sugeridos -->
     <div class="sidebar-left">// audio processor // independent system</div>
     <div class="sidebar-right">// monotoxic digital recordings</div>
 
-    <!-- Contenedor del logotipo -->
     <div class="logo-container">
         <img src="letra.png" alt="EDODIOSBOLA" class="logo-img">
     </div>
 
-    <!-- Contenedor del Video de YouTube -->
     <div class="video-container">
         <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/X0i4szmfXkg?si=W6vxarBkzOio2eAM" 
-                    frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/X0i4szmfXkg" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- Contenedor de Bandcamp / Audio -->
- <div class="audio-container">
-    <p>Escuchar Audio</p>
-    <div class="audio-wrapper">
-    <iframe 
-    style="border: 0; width: 100%; height: 42px;" 
-    src="https://bandcamp.com/EmbeddedPlayer/track=3212722309/size=small/bgcol=0d0d0d/linkcol=ffffff/transparent=true/" 
-    seamless>
-    <a href="https://edodiosbola.bandcamp.com/track/no-espere-usted-el-juicio-final-se-produce-todos-los-d-as">No espere usted el Juicio Final. Se produce todos los días. by EDODIOSBOLA</a>
-</iframe>
+    <div class="audio-container">
+        <p>Escuchar Audio</p>
+        <div class="audio-wrapper">
+            <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/track=3212722309/size=small/bgcol=0d0d0d/linkcol=ffffff/transparent=true/" seamless></iframe>
+        </div>
     </div>
-</div>
 
-    <!-- Sección de Enlaces -->
     <div class="links-section">
         <p>Enlaces Oficiales</p>
-    <div class="row-links">
-    <a href="https://edodiosbola.bandcamp.com/" class="btn" target="_blank" rel="noopener noreferrer">Bandcamp</a>
-    <a href="https://www.youtube.com/@edodiosbola" class="btn" target="_blank" rel="noopener noreferrer">YouTube</a>
-    <a href="https://www.instagram.com/edodiosbola/" class="btn" target="_blank" rel="noopener noreferrer">Instagram</a>
-</div>
+        <div class="row-links">
+            <a href="https://edodiosbola.bandcamp.com/" class="btn" target="_blank">Bandcamp</a>
+            <a href="https://www.youtube.com/@edodiosbola" class="btn" target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/edodiosbola/" class="btn" target="_blank">Instagram</a>
+        </div>
     </div>
 
-    <!-- Alerta Toast (Opcional) -->
-    <div id="toast" class="toast">¡Copiado al portapapeles!</div>
-
-    <!-- Footer -->
     <footer>
         <span>Contacto</span>
-        <button class="email-btn" onclick="copyEmail()">edodiosbola.r@gmail.com</button>
+        <button class="email-btn" onclick="navigator.clipboard.writeText('edodiosbola.r@gmail.com'); alert('Copiado');">edodiosbola.r@gmail.com</button>
     </footer>
-
-    <!-- Script funcional para copiar correo -->
-    <script>
-        function copyEmail() {
-            const email = "edodiosbola.r@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                const toast = document.getElementById('toast');
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
-            });
-        }
-    </script>
-
 </body>
 </html>
