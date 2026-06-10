@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>EDODIOSBOLA | SITIO OFICIAL</title>
     
+    <!-- Favicon añadido -->
+    <link rel="icon" type="image/png" href="1.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
@@ -12,13 +15,13 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Solución para el fondo estable */
+        /* Contenedor de fondo fijo para evitar saltos en móvil */
         .bg-fixed {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100dvh; /* Usa altura dinámica para evitar saltos en móviles */
+            height: 100dvh;
             z-index: -1;
             background-image: url('ascii-art.png');
             background-size: cover;
