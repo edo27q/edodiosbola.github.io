@@ -1,4 +1,171 @@
+
 <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDODIOSBOLA | SITIO OFICIAL</title>
+    
+    <meta name="google-site-verification" content="mLG7-y_ZmT_4YUojUmnTwfE_bjV6qzU2aY-j4esOwQw">
+    <meta name="description" content="Edodiosbola.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            background-color: #00000000; /* Fondo sólido para carga rápida */
+        }
+
+        body {
+            background-image: url('ascii-art.png');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px 20px 20px;
+            overflow-x: hidden;
+            min-height: 100vh;
+            
+            /* Animación de entrada suave */
+            opacity: 0;
+            animation: fadeIn 0.8s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .sidebar-left, .sidebar-right {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            color: rgba(255, 255, 255, 0.15);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .sidebar-left { left: 20px; transform-origin: left center; }
+        .sidebar-right { right: 20px; transform: translateY(-50%) rotate(90deg); transform-origin: right center; }
+
+        .logo-container { width: 100%; max-width: 580px; margin-bottom: 20px; text-align: center; }
+        .logo-img { width: 100%; height: auto; display: block; margin: 0 auto; }
+
+        .video-container { width: 100%; max-width: 680px; margin-bottom: 40px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 1px solid rgb(245, 245, 245); background: #000; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .audio-container { width: 100%; max-width: 680px; margin-bottom: 40px; text-align: center; }
+        .audio-container p { color: #ffffff; font-size: 0.75rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 4px; }
+        .audio-wrapper { border: 1px solid rgba(255, 255, 255, 0.15); background: #0d0d0d; padding: 5px; }
+
+        .links-section { text-align: center; margin-bottom: 40px; width: 100%; max-width: 680px; }
+        .links-section p { color: #ffffff; font-size: 0.75rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 4px; font-weight: 400; }
+        .row-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 22px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            transition: all 0.25s ease-in-out;
+            background: rgba(13, 13, 13, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        .btn:hover { border-color: #ffffff; color: #000000; background-color: #ffffff; letter-spacing: 3px; }
+
+        footer { 
+            text-align: center; 
+            margin-top: auto; 
+            padding-bottom: 20px; 
+            width: 100%; 
+        }
+        footer span { color: #ffffff; display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; }
+        .email-btn { background: transparent; border: none; color: rgba(255, 255, 255, 0.932); font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 300; cursor: pointer; text-decoration: underline; letter-spacing: 1px; }
+
+        .toast {
+            position: fixed; bottom: 35px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: #ffffff; color: #000000; padding: 6px 14px; font-size: 0.7rem; text-transform: uppercase;
+            transition: transform 0.2s ease; z-index: 1000; pointer-events: none;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        @media (max-width: 768px) {
+            .sidebar-left, .sidebar-right { display: none; }
+            .row-links { flex-direction: column; padding: 0 30px; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar-left">// audio processor // independent system</div>
+    <div class="sidebar-right">// monotoxic digital recordings</div>
+
+    <div class="logo-container">
+        <img src="letra.png" alt="EDODIOSBOLA" class="logo-img">
+    </div>
+
+    <div class="video-container">
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/X0i4szmfXkg" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="audio-container">
+        <p>Escuchar Audio</p>
+        <div class="audio-wrapper">
+            <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/track=3212722309/size=small/bgcol=0d0d0d/linkcol=ffffff/transparent=true/" seamless></iframe>
+        </div>
+    </div>
+
+    <div class="links-section">
+        <p>Enlaces Oficiales</p>
+        <div class="row-links">
+            <a href="https://edodiosbola.bandcamp.com/" class="btn" target="_blank">Bandcamp</a>
+            <a href="https://www.youtube.com/@edodiosbola" class="btn" target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/edodiosbola/" class="btn" target="_blank">Instagram</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">¡Copiado al portapapeles!</div>
+
+    <footer>
+        <span>Contacto</span>
+        <button class="email-btn" onclick="copyEmail()">edodiosbola.r@gmail.com</button>
+    </footer>
+
+    <script>
+        function copyEmail() {
+            navigator.clipboard.writeText("edodiosbola.r@gmail.com").then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            });
+        }
+    </script>
+</body>
+</html>
+
+```<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
