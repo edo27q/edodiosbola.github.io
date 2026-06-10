@@ -168,18 +168,24 @@
     </footer>
 
     <script>
-        // Efecto de carga
-        window.addEventListener('load', () => {
-            document.body.classList.add('loaded');
-        });
+    // Función para quitar el overlay
+    function removeOverlay() {
+        document.body.classList.add('loaded');
+    }
 
-        function copyEmail() {
-            navigator.clipboard.writeText("edodiosbola.r@gmail.com").then(() => {
-                const toast = document.getElementById('toast');
-                toast.classList.add('show');
-                setTimeout(() => toast.classList.remove('show'), 2000);
-            });
-        }
-    </script>
+    // 1. Intentar quitarlo cuando todo cargue
+    window.addEventListener('load', removeOverlay);
+
+    // 2. FORZAR el quitado si pasan 2.5 segundos (por si la red es muy lenta)
+    setTimeout(removeOverlay, 2500);
+
+    function copyEmail() {
+        navigator.clipboard.writeText("edodiosbola.r@gmail.com").then(() => {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        });
+    }
+</script>
 </body>
 </html>
